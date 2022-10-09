@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ethan\\Documents\\Projects\\Fantasy App\\FPL Project\\FPL Project\\FPL Project.csproj": {}
+    "C:\\Users\\ethan\\Documents\\Projects\\Fantasy-App\\FPL Project\\FPL Project\\FPL Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ethan\\Documents\\Projects\\Fantasy App\\FPL Project\\FPL Project\\FPL Project.csproj": {
+    "C:\\Users\\ethan\\Documents\\Projects\\Fantasy-App\\FPL Project\\FPL Project\\FPL Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy App\\FPL Project\\FPL Project\\FPL Project.csproj",
+        "projectUniqueName": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy-App\\FPL Project\\FPL Project\\FPL Project.csproj",
         "projectName": "FPL Project",
-        "projectPath": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy App\\FPL Project\\FPL Project\\FPL Project.csproj",
+        "projectPath": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy-App\\FPL Project\\FPL Project\\FPL Project.csproj",
         "packagesPath": "C:\\Users\\ethan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy App\\FPL Project\\FPL Project\\obj\\",
+        "outputPath": "C:\\Users\\ethan\\Documents\\Projects\\Fantasy-App\\FPL Project\\FPL Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ethan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,13 +39,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Npgsql": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
