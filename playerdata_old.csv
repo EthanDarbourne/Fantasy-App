@@ -1,0 +1,626 @@
+Name,Team,Position,Price,Points,Goals,Assists,Clean Sheets,Goals Conceded
+Haaland,Forward,Man City,12.0,67,10,1,3,6
+Toney,Forward,Brentford,7.2,45,5,2,1,9
+Grob,Midfielder,Brighton,6.0,42,3,2,3,5
+Kane,Forward,Spurs,11.4,40,5,1,3,4
+Rashford,Midfielder,Man Utd,6.6,40,3,2,2,8
+Mac Allister,Midfielder,Brighton,5.6,39,4,0,3,5
+Mitrovic,Forward,Fulham,6.9,39,6,0,1,9
+Rodrigo,Midfielder,Leeds,6.3,38,4,1,1,5
+Salah,Midfielder,Liverpool,12.9,38,2,3,2,6
+Martinelli,Midfielder,Arsenal,6.5,36,3,1,2,7
+Pope,Goalkeeper,Newcastle,5.1,36,0,0,3,6
+De Bruyne,Midfielder,Man City,12.2,35,1,4,2,6
+Firmino,Forward,Liverpool,8.0,35,3,3,1,4
+Sa,Goalkeeper,Wolves,5.0,35,0,0,3,4
+Sterling,Midfielder,Chelsea,10.0,34,3,1,1,8
+Odegaard,Midfielder,Arsenal,6.5,34,3,0,2,6
+Bernardo,Midfielder,Man City,7.0,33,2,2,2,5
+Cancelo,Defender,Man City,7.1,33,1,1,3,6
+Jesus,Forward,Arsenal,8.1,33,3,3,2,7
+Luis Diaz,Midfielder,Liverpool,8.2,32,3,0,2,6
+Trossard,Midfielder,Brighton,6.5,32,2,2,3,5
+Henderson,Goalkeeper,Nottm Forest,4.7,31,0,0,1,14
+Zaha,Midfielder,Crystal Palace,7.2,31,4,0,1,5
+Gundogan,Midfielder,Man City,7.6,30,2,1,3,4
+Trippier,Defender,Newcastle,5.2,30,1,0,3,6
+Harrison,Midfielder,Leeds,6.2,29,1,3,1,7
+Saliba,Defender,Arsenal,4.8,29,1,1,2,7
+Collins,Defender,Wolves,4.5,28,0,0,3,4
+Hojbjerg,Midfielder,Spurs,5.5,28,2,0,2,5
+Saka,Midfielder,Arsenal,7.8,28,1,3,2,7
+Sancho,Midfielder,Man Utd,7.3,28,2,0,3,7
+Sanchez,Goalkeeper,Brighton,4.7,28,0,0,3,5
+Gabriel,Defender,Arsenal,5.1,27,1,0,2,7
+Kilman,Defender,Wolves,4.5,27,0,0,3,4
+Kulusevski,Midfielder,Spurs,8.1,27,1,2,2,5
+Saint-Maximin,Midfielder,Newcastle,6.4,27,1,3,2,4
+Schar,Defender,Newcastle,4.7,27,1,0,3,4
+Dier,Defender,Spurs,5.0,26,1,0,2,5
+Emerson Royal,Defender,Spurs,5.1,26,0,2,2,5
+Podence,Midfielder,Wolves,5.5,26,2,0,2,3
+Veltman,Defender,Brighton,4.6,26,0,0,3,5
+Xhaka,Midfielder,Arsenal,5.0,26,1,2,2,7
+Jensen,Midfielder,Brentford,5.1,25,1,2,1,8
+Lloris,Goalkeeper,Spurs,5.5,25,0,0,2,5
+Perisic,Defender,Spurs,5.6,25,0,2,2,1
+Pickford,Goalkeeper,Everton,4.5,25,0,1,1,6
+Alexander-Arnold,Defender,Liverpool,7.5,24,1,1,1,6
+Foden,Midfielder,Man City,8.0,24,1,3,1,6
+Watkins,Forward,Aston Villa,7.3,24,1,2,0,9
+Andreas,Midfielder,Fulham,4.6,23,0,2,1,7
+Dalot,Defender,Man Utd,4.5,23,0,1,2,8
+Ederson,Goalkeeper,Man City,5.5,23,0,0,3,6
+James,Defender,Chelsea,6.0,23,1,1,1,7
+Kelly,Defender,Bournemouth,4.5,23,0,2,2,9
+Raya,Goalkeeper,Brentford,4.5,23,0,0,1,9
+Van Dijk,Defender,Liverpool,6.5,23,1,0,2,6
+Ward-Prowse,Midfielder,Southampton,6.5,23,1,1,0,10
+White,Defender,Arsenal,4.5,23,0,0,3,6
+Chilwell,Defender,Chelsea,5.8,22,1,2,1,0
+Dias,Defender,Man City,6.0,22,0,0,3,6
+Dunk,Defender,Brighton,4.6,22,0,0,3,5
+Eze,Midfielder,Crystal Palace,5.5,22,0,2,2,8
+Fernandes,Midfielder,Man Utd,9.8,22,1,1,2,8
+Gordon,Midfielder,Everton,5.5,22,2,0,1,6
+Jonny,Defender,Wolves,4.4,22,0,0,3,4
+Maddison,Midfielder,Leicester,7.9,22,2,1,0,14
+Martinez,Goalkeeper,Aston Villa,4.9,22,0,0,0,10
+Mbeumo,Forward,Brentford,6.0,22,2,0,1,9
+Neves,Midfielder,Wolves,5.5,22,1,0,3,4
+Walker,Defender,Man City,5.1,22,0,0,3,6
+Welbeck,Forward,Brighton,6.5,22,0,3,3,3
+Wissa,Midfielder,Brentford,5.4,22,2,1,0,5
+De Gea,Goalkeeper,Man Utd,4.9,21,0,0,2,8
+Fornals,Midfielder,West Ham,5.4,21,1,0,1,6
+Johnson,Forward,Nottm Forest,5.9,21,2,0,1,11
+Soucek,Midfielder,West Ham,5.4,21,1,0,1,8
+Webster,Defender,Brighton,4.5,21,0,0,3,5
+A.Armstrong,Forward,Southampton,5.5,20,1,1,0,6
+Adams,Forward,Southampton,6.4,20,2,0,0,5
+Alisson,Goalkeeper,Liverpool,5.5,20,0,0,2,6
+Almiron,Midfielder,Newcastle,5.0,20,1,0,3,5
+Caicedo,Midfielder,Brighton,5.0,20,1,0,3,5
+Coady,Defender,Everton,4.8,20,0,1,1,4
+Gray,Midfielder,Everton,5.5,20,1,0,1,5
+Janelt,Midfielder,Brentford,5.5,20,1,1,0,5
+Jorginho,Midfielder,Chelsea,6.0,20,1,0,1,6
+March,Midfielder,Brighton,5.0,20,0,2,3,5
+Zinchenko,Defender,Arsenal,5.1,20,0,1,2,4
+Aaronson,Midfielder,Leeds,5.5,19,1,1,1,10
+Andersen,Defender,Crystal Palace,4.5,19,1,0,1,9
+Bailey,Midfielder,Aston Villa,4.7,19,1,1,0,8
+Carvalho,Midfielder,Liverpool,5.4,19,2,1,0,0
+Dasilva,Midfielder,Brentford,4.6,19,2,0,1,4
+Davies,Defender,Spurs,5.0,19,0,1,2,4
+Gomez,Defender,Liverpool,4.5,19,0,0,2,3
+Lerma,Midfielder,Bournemouth,5.0,19,1,0,2,18
+Malacia,Defender,Man Utd,4.4,19,0,0,2,2
+Mee,Defender,Brentford,4.5,19,1,0,1,9
+Ramsdale,Goalkeeper,Arsenal,4.9,19,0,0,2,7
+Rodri,Midfielder,Man City,5.9,19,0,2,2,6
+Struijk,Defender,Leeds,4.5,19,0,1,1,10
+Thiago Silva,Defender,Chelsea,5.5,19,0,1,1,9
+Burn,Defender,Newcastle,4.5,18,0,0,2,6
+Dewsbury-Hall,Midfielder,Leicester,5.0,18,1,0,0,11
+Elliott,Midfielder,Liverpool,5.0,18,1,0,1,5
+Fabianski,Goalkeeper,West Ham,5.0,18,0,0,1,6
+Rice,Midfielder,West Ham,4.9,18,0,2,1,8
+Sinisterra,Midfielder,Leeds,6.5,18,2,0,0,5
+Botman,Defender,Newcastle,4.4,17,0,0,2,4
+C.Doucoure,Midfielder,Crystal Palace,5.0,17,0,1,1,8
+Mendy,Goalkeeper,Chelsea,4.9,17,0,0,1,9
+Meslier,Goalkeeper,Leeds,4.5,17,0,0,1,10
+Mitchell,Defender,Crystal Palace,4.5,17,0,1,1,6
+Roca,Midfielder,Leeds,4.9,17,1,0,1,8
+Solanke,Forward,Bournemouth,5.7,17,1,1,2,6
+Son,Midfielder,Spurs,11.7,17,0,1,2,5
+Varane,Defender,Man Utd,4.8,17,0,0,2,2
+Vardy,Forward,Leicester,9.3,17,0,2,1,9
+Antonio,Forward,West Ham,7.2,16,1,1,1,5
+Billing,Midfielder,Bournemouth,5.3,16,1,0,2,10
+De Cordova-Reid,Midfielder,Fulham,5.5,16,1,0,1,8
+Eriksen,Midfielder,Man Utd,6.3,16,0,1,2,8
+Henry,Defender,Brentford,4.5,16,0,1,1,9
+Joelinton,Midfielder,Newcastle,6.0,16,0,1,3,6
+Matheus,Midfielder,Wolves,5.0,16,0,1,2,2
+Robertson,Defender,Liverpool,6.8,16,0,1,1,6
+Stones,Defender,Man City,5.4,16,0,2,1,6
+Targett,Defender,Newcastle,4.9,16,0,0,2,2
+Tete,Defender,Fulham,4.5,16,0,2,1,8
+Tielemans,Midfielder,Leicester,6.3,16,0,1,0,14
+Zouma,Defender,West Ham,4.5,16,0,0,1,8
+Ake,Defender,Man City,5.0,15,0,0,2,0
+Aribo,Midfielder,Southampton,5.4,15,1,0,0,7
+Buendia,Midfielder,Aston Villa,5.9,15,1,0,0,7
+Cook,Midfielder,Bournemouth,4.9,15,0,1,1,13
+Guaita,Goalkeeper,Crystal Palace,4.5,15,0,0,1,9
+Iwobi,Midfielder,Everton,5.5,15,0,1,1,6
+Lingard,Midfielder,Nottm Forest,5.7,15,0,1,2,5
+Neto,Midfielder,Wolves,5.2,15,0,0,4,3
+Norgaard,Midfielder,Brentford,5.4,15,1,0,1,6
+R.Sessegnon,Defender,Spurs,4.5,15,1,1,0,3
+Tarkowski,Defender,Everton,4.4,15,0,0,1,6
+Walker-Peters,Defender,Southampton,4.5,15,1,0,0,10
+Willock,Midfielder,Newcastle,4.9,15,0,0,3,6
+Alvarez,Forward,Man City,6.2,15,2,0,1,0
+Awoniyi,Forward,Nottm Forest,5.8,14,1,0,2,5
+Daka,Forward,Leicester,5.7,14,1,1,0,9
+Havertz,Forward,Chelsea,7.7,14,1,0,1,7
+Koulibaly,Defender,Chelsea,5.5,14,1,0,1,8
+Llorente,Defender,Leeds,4.5,14,0,0,1,10
+Martinez,Defender,Man Utd,4.5,14,0,0,2,8
+Moore,Forward,Bournemouth,5.5,14,1,0,1,16
+Mount,Midfielder,Chelsea,7.6,14,0,1,1,8
+Mykolenko,Defender,Everton,4.5,14,0,0,1,6
+Palhinha,Midfielder,Fulham,5.0,14,1,0,1,9
+Patterson,Defender,Everton,4.1,14,0,0,1,6
+Sanchez,Defender,Spurs,4.4,14,0,0,2,1
+Tavernier,Midfielder,Bournemouth,4.9,14,0,0,2,18
+Wilson,Forward,Newcastle,7.2,14,2,0,2,3
+Ait-Nouri,Defender,Wolves,4.4,13,0,0,2,3
+Bazunu,Goalkeeper,Southampton,4.5,13,0,0,0,10
+Bowen,Midfielder,West Ham,8.1,13,0,0,1,8
+Coufal,Defender,West Ham,4.4,13,0,0,1,8
+Djenepo,Midfielder,Southampton,5.0,13,0,1,0,8
+Douglas Luiz,Midfielder,Aston Villa,4.8,13,1,0,1,2
+Gibbs-White,Midfielder,Nottm Forest,5.5,13,0,1,1,12
+Guedes,Midfielder,Wolves,6.0,13,0,1,2,1
+Iheanacho,Forward,Leicester,6.2,13,1,1,0,7
+Kebano,Midfielder,Fulham,5.5,13,0,1,1,4
+Koch,Defender,Leeds,4.5,13,0,0,1,10
+Lavia,Midfielder,Southampton,4.5,13,1,0,0,9
+S.Longstaff,Midfielder,Newcastle,4.4,13,0,1,1,3
+Schlupp,Midfielder,Crystal Palace,4.9,13,0,0,2,8
+Ayew,Midfielder,Crystal Palace,5.4,12,0,0,1,8
+Barnes,Midfielder,Leicester,6.9,12,1,0,0,6
+Cucurella,Defender,Chelsea,5.2,12,0,2,0,9
+Estupinan,Defender,Brighton,4.5,12,0,1,1,2
+Holgate,Defender,Everton,4.4,12,0,0,1,4
+Kouyate,Midfielder,Nottm Forest,4.5,12,1,0,0,9
+Mepham,Defender,Bournemouth,4.4,12,0,0,2,17
+N.Williams,Defender,Nottm Forest,4.1,12,0,1,1,14
+Ream,Defender,Fulham,4.5,12,0,0,1,9
+Toffolo,Defender,Nottm Forest,4.5,12,0,0,1,6
+Tosin,Defender,Fulham,4.5,12,0,0,1,9
+Adams,Midfielder,Leeds,5.0,11,0,0,1,10
+Anthony,Midfielder,Bournemouth,5.3,11,1,0,0,10
+Azpilicueta,Defender,Chelsea,4.9,11,0,0,1,4
+Bella-Kotchap,Defender,Southampton,4.5,11,0,1,0,6
+Cresswell,Defender,West Ham,4.8,11,0,0,1,6
+Fabinho,Midfielder,Liverpool,5.4,11,0,0,2,3
+Ings,Forward,Aston Villa,6.7,11,1,0,1,3
+Kamara,Midfielder,Aston Villa,4.9,11,0,0,0,10
+Kristensen,Defender,Leeds,4.9,11,0,0,1,5
+Mahrez,Midfielder,Man City,7.6,11,0,1,1,3
+Milner,Midfielder,Liverpool,4.5,11,0,1,0,4
+Mwepu,Midfielder,Brighton,5.3,11,0,1,0,4
+Ndidi,Midfielder,Leicester,4.9,11,0,0,0,14
+Onana,Midfielder,Everton,4.9,11,0,1,2,3
+Perraud,Defender,Southampton,4.5,11,0,1,0,2
+Ramsey,Midfielder,Aston Villa,5.2,11,0,1,0,9
+Reed,Midfielder,Fulham,4.5,11,0,0,1,9
+Richarlison,Forward,Spurs,8.5,11,0,2,0,2
+Baptiste,Midfielder,Brentford,4.5,10,0,1,0,3
+Bentancur,Midfielder,Spurs,5.4,10,0,0,2,4
+Castagne,Defender,Leicester,4.5,10,1,0,0,13
+Christie,Midfielder,Bournemouth,5.3,10,0,0,1,10
+Edouard,Forward,Crystal Palace,5.3,10,0,1,0,5
+Elanga,Midfielder,Man Utd,4.9,10,0,1,1,0
+Guehi,Defender,Crystal Palace,4.4,10,0,0,1,9
+Leno,Goalkeeper,Fulham,4.5,10,0,0,0,7
+McGinn,Midfielder,Aston Villa,5.3,10,0,0,0,9
+McNeil,Midfielder,Everton,5.2,10,0,0,0,5
+Robinson,Defender,Fulham,4.5,10,0,0,1,7
+Tsimikas,Defender,Liverpool,4.5,10,0,2,0,0
+Ward,Defender,Crystal Palace,4.5,10,0,0,1,7
+Yates,Midfielder,Nottm Forest,5.0,10,0,1,0,10
+Zemura,Defender,Bournemouth,4.4,10,0,0,2,14
+Benrahma,Midfielder,West Ham,5.7,9,0,0,0,7
+Darwin,Forward,Liverpool,8.9,9,1,1,1,2
+Henderson,Midfielder,Liverpool,5.3,9,0,0,1,5
+Hickey,Defender,Brentford,5.0,9,0,0,1,8
+Hwang,Midfielder,Wolves,5.7,9,0,1,0,3
+Isak,Forward,Newcastle,7.0,9,1,0,1,1
+Jansson,Defender,Brentford,4.4,9,0,0,1,7
+Lewis-Potter,Midfielder,Brentford,5.3,9,0,1,0,3
+Loftus-Cheek,Midfielder,Chelsea,5.0,9,0,0,0,9
+Mateta,Forward,Crystal Palace,5.3,9,1,0,1,2
+McTominay,Midfielder,Man Utd,4.9,9,0,0,2,4
+O'Brien,Midfielder,Nottm Forest,5.0,9,0,0,1,9
+Smith,Defender,Bournemouth,4.4,9,0,0,2,14
+Bamford,Forward,Leeds,7.3,8,0,1,0,4
+Coutinho,Midfielder,Aston Villa,6.7,8,0,0,1,3
+Elyounoussi,Midfielder,Southampton,5.3,8,0,0,0,6
+Justin,Defender,Leicester,4.3,8,0,1,0,16
+Lallana,Midfielder,Brighton,4.9,8,0,0,2,1
+Moutinho,Midfielder,Wolves,4.9,8,0,0,2,1
+Partey,Midfielder,Arsenal,4.8,8,0,0,2,2
+Travers,Goalkeeper,Bournemouth,4.5,8,0,0,1,16
+Ward,Goalkeeper,Leicester,4.0,8,0,0,0,16
+Worrall,Defender,Nottm Forest,4.4,8,0,0,1,14
+Bruno Guimaraes,Midfielder,Newcastle,5.7,7,0,0,2,3
+Dendoncker,Midfielder,Aston Villa,4.8,7,0,0,1,3
+James,Midfielder,Fulham,6.0,7,0,0,1,3
+Konsa,Defender,Aston Villa,4.4,7,0,0,0,9
+Mara,Forward,Southampton,5.5,7,0,1,0,1
+McKenna,Defender,Nottm Forest,4.5,7,0,0,1,14
+Niakhate,Defender,Nottm Forest,4.4,7,0,0,1,2
+Olise,Midfielder,Crystal Palace,5.5,7,0,0,1,1
+Perez,Midfielder,Leicester,4.9,7,0,1,1,1
+Rodak,Goalkeeper,Fulham,4.4,7,0,0,1,2
+Ronaldo,Forward,Man Utd,10.2,7,0,0,0,5
+Stansfield,Forward,Fulham,4.5,7,0,1,0,2
+Tierney,Defender,Arsenal,4.9,7,0,0,0,2
+Wood,Forward,Newcastle,5.7,7,0,0,0,2
+Antony,Midfielder,Man Utd,7.5,6,1,0,0,0
+Cairney,Midfielder,Fulham,4.8,6,0,0,0,2
+Cash,Defender,Aston Villa,4.7,6,0,0,0,9
+Clyne,Defender,Crystal Palace,4.5,6,0,0,0,7
+Davies,Midfielder,Everton,4.9,6,0,0,1,3
+Fraser,Midfielder,Newcastle,5.3,6,0,0,1,1
+Kehrer,Defender,West Ham,4.5,6,0,0,1,5
+Mbabu,Defender,Fulham,4.4,6,0,1,0,3
+Mings,Defender,Aston Villa,4.3,6,0,0,0,7
+Murphy,Midfielder,Newcastle,4.4,6,0,0,0,1
+Neto,Goalkeeper,Bournemouth,4.5,6,0,0,1,2
+Nketiah,Forward,Arsenal,6.6,6,0,0,0,1
+Pearson,Midfielder,Bournemouth,4.5,6,0,0,1,7
+Roerslev,Defender,Brentford,4.4,6,0,0,1,0
+S.Armstrong,Midfielder,Southampton,4.9,6,0,0,0,4
+Sambi,Midfielder,Arsenal,4.4,6,0,0,0,3
+Amartey,Defender,Leicester,4.4,5,0,0,0,10
+Cook,Defender,Nottm Forest,4.5,5,0,0,0,5
+Digne,Defender,Aston Villa,4.7,5,0,0,0,10
+Evans,Defender,Leicester,4.4,5,0,0,0,16
+Fred,Midfielder,Man Utd,5.2,5,0,0,0,7
+Gelhardt,Forward,Leeds,5.3,5,0,0,0,3
+Jimenez,Forward,Wolves,6.9,5,0,0,1,2
+Johnson,Defender,West Ham,4.4,5,0,0,0,3
+Kante,Midfielder,Chelsea,4.8,5,0,0,1,1
+Klich,Midfielder,Leeds,4.8,5,0,0,0,3
+Lamptey,Defender,Brighton,4.3,5,0,0,0,0
+Mangala,Midfielder,Nottm Forest,4.9,5,0,0,1,1
+Pulisic,Midfielder,Chelsea,5.7,5,0,0,0,2
+Salisu,Defender,Southampton,4.4,5,0,0,0,10
+Scamacca,Forward,West Ham,6.7,5,0,0,1,2
+Soumare,Midfielder,Leicester,4.4,5,0,0,0,6
+Zanka,Defender,Brentford,4.0,5,0,0,0,3
+Adama,Midfielder,Wolves,5.5,4,0,0,0,0
+Bissouma,Midfielder,Spurs,4.8,4,0,0,0,1
+Broja,Forward,Chelsea,5.3,4,0,0,0,2
+Colback,Midfielder,Nottm Forest,4.3,4,0,0,0,4
+Dervisoglu,Forward,Brentford,4.5,4,0,1,0,0
+Grealish,Midfielder,Man City,6.8,4,0,0,1,0
+Hughes,Midfielder,Crystal Palace,4.9,4,0,0,0,2
+Kovacic,Midfielder,Chelsea,4.9,4,0,0,0,1
+Martial,Forward,Man Utd,6.9,4,0,1,0,1
+Milivojevic,Midfielder,Crystal Palace,4.4,4,0,0,0,2
+Mitoma,Midfielder,Brighton,4.9,4,0,0,0,0
+Romero,Defender,Spurs,4.9,4,0,0,0,4
+Semedo,Defender,Wolves,5.0,4,0,0,0,1
+Smith Rowe,Midfielder,Arsenal,5.7,4,0,0,0,1
+Tomiyasu,Defender,Arsenal,4.2,4,0,0,0,1
+A.Doucoure,Midfielder,Everton,5.3,3,0,0,0,2
+Anderson,Midfielder,Newcastle,4.5,3,0,0,0,1
+Ayling,Defender,Leeds,4.5,3,0,1,0,2
+Bech,Defender,Brentford,4.5,3,0,0,0,0
+Casemiro,Midfielder,Man Utd,5.0,3,0,0,0,0
+Chambers,Defender,Aston Villa,4.4,3,0,0,0,1
+Cornet,Midfielder,West Ham,5.9,3,0,0,0,1
+Diallo,Midfielder,Southampton,4.4,3,0,0,0,2
+Diego Carlos,Defender,Aston Villa,4.8,3,0,0,0,3
+Forshaw,Midfielder,Leeds,4.5,3,0,0,0,0
+Freuler,Midfielder,Nottm Forest,5.0,3,0,0,0,7
+Gallagher,Midfielder,Chelsea,5.7,3,0,0,0,4
+Greenwood,Forward,Leeds,4.4,3,0,0,0,1
+Lanzini,Midfielder,West Ham,5.3,3,0,0,0,1
+Lenglet,Defender,Spurs,4.8,3,0,0,0,1
+Lyanco,Defender,Southampton,4.4,3,0,0,0,0
+Onyeka,Midfielder,Brentford,4.9,3,0,0,0,1
+Palmer,Midfielder,Man City,4.4,3,0,0,0,0
+Rondon,Forward,Everton,5.0,3,0,0,0,1
+Surridge,Forward,Nottm Forest,4.8,3,0,0,0,1
+Undav,Forward,Brighton,5.2,3,0,0,0,0
+Van de Beek,Midfielder,Man Utd,5.2,3,0,0,0,0
+Ziyech,Midfielder,Chelsea,5.7,3,0,0,0,3
+Archer,Forward,Aston Villa,4.4,2,0,0,0,0
+Chalobah,Midfielder,Fulham,4.5,2,0,0,0,0
+Chalobah,Defender,Chelsea,4.7,2,0,0,0,1
+Colwill,Defender,Brighton,4.4,2,0,0,0,0
+Damsgaard,Midfielder,Brentford,5.3,2,0,0,0,0
+Dele,Midfielder,Everton,5.3,2,0,0,0,1
+Dennis,Forward,Nottm Forest,5.9,2,0,0,0,4
+Duffy,Defender,Fulham,4.4,2,0,0,0,0
+Elneny,Midfielder,Arsenal,4.3,2,0,0,0,1
+Emerson,Defender,West Ham,4.0,2,0,0,0,2
+Fofana,Defender,Chelsea,4.4,2,0,0,0,7
+Fredericks,Defender,Bournemouth,4.4,2,0,0,0,0
+Ghoddos,Midfielder,Brentford,4.9,2,0,0,0,1
+Holding,Defender,Arsenal,4.3,2,0,0,0,0
+Lewis,Defender,Man City,4.0,2,0,0,0,0
+Lucas Moura,Midfielder,Spurs,5.8,2,0,0,0,0
+Matip,Defender,Liverpool,5.9,2,0,0,0,2
+Maupay,Forward,Everton,6.1,2,0,0,1,0
+Ogbonna,Defender,West Ham,4.5,2,0,0,0,1
+Paqueta,Midfielder,West Ham,6.0,2,0,0,0,1
+Phillips,Defender,Liverpool,4.0,2,0,0,0,1
+Richards,Defender,Crystal Palace,4.4,2,0,0,0,3
+Romeu,Midfielder,Southampton,4.8,2,0,0,0,4
+Sergio Gomez,Defender,Man City,4.5,2,0,0,0,0
+Stanislas,Midfielder,Bournemouth,4.8,2,0,0,0,1
+Summerville,Midfielder,Leeds,4.4,2,0,0,0,2
+Vinagre,Defender,Everton,4.3,2,0,0,0,0
+Young,Defender,Aston Villa,4.4,2,0,0,0,1
+Areola,Goalkeeper,West Ham,4.4,1,0,0,0,2
+Bajcetic,Midfielder,Liverpool,4.5,1,0,0,0,0
+Bednarek,Defender,Aston Villa,4.3,1,0,0,0,6
+Bevan,Defender,Bournemouth,4.0,1,0,0,0,1
+Biancone,Defender,Nottm Forest,4.3,1,0,0,0,1
+Cafu,Midfielder,Nottm Forest,4.4,1,0,0,0,0
+Campbell,Midfielder,Wolves,4.4,1,0,0,0,0
+Clark,Midfielder,Liverpool,4.5,1,0,0,0,0
+Coventry,Midfielder,West Ham,4.4,1,0,0,0,0
+Diogo Jota,Forward,Liverpool,8.9,1,0,0,0,0
+Diop,Defender,Fulham,4.3,1,0,0,0,1
+Doherty,Defender,Spurs,4.6,1,0,0,0,0
+Downes,Midfielder,West Ham,4.4,1,0,0,0,0
+Drameh,Defender,Leeds,4.0,1,0,0,0,3
+Ebiowei,Midfielder,Crystal Palace,4.4,1,0,0,0,0
+Edozie,Midfielder,Southampton,5.0,1,0,0,0,0
+Francois,Midfielder,Fulham,4.4,1,0,0,0,0
+Fabio Vieira,Midfielder,Arsenal,5.7,1,0,0,0,1
+Garnacho,Midfielder,Man Utd,4.4,1,0,0,0,0
+Gilmour,Midfielder,Brighton,4.4,1,0,0,0,0
+Godfrey,Defender,Everton,4.3,1,0,0,0,0
+Gueye,Midfielder,Everton,5.0,1,0,0,0,0
+Kalajdzic,Forward,Wolves,5.5,1,0,0,0,0
+Keane,Defender,Everton,4.3,1,0,0,0,1
+Krafth,Defender,Newcastle,4.3,1,0,0,0,0
+Lowe,Midfielder,Bournemouth,5.3,1,0,0,0,0
+Maitland-Niles,Midfielder,Southampton,4.8,1,0,0,0,0
+Marcondes,Midfielder,Bournemouth,4.8,1,0,0,0,1
+Mighten,Midfielder,Nottm Forest,4.9,1,0,0,0,0
+Mina,Defender,Everton,4.3,1,0,0,0,1
+Phillips,Midfielder,Man City,4.8,1,0,0,0,0
+Praet,Midfielder,Leicester,4.9,1,0,0,0,2
+Redmond,Midfielder,Southampton,5.3,1,0,0,0,0
+Ritchie,Defender,Newcastle,4.3,1,0,0,0,0
+Solomon,Midfielder,Fulham,4.9,1,0,0,0,1
+Spence,Defender,Spurs,4.2,1,0,0,0,0
+Stephens,Defender,Bournemouth,4.3,1,0,0,0,2
+Thiago,Midfielder,Liverpool,5.2,1,0,0,0,1
+Van Hecke,Defender,Brighton,4.0,1,0,0,0,0
+Vinicius,Forward,Fulham,5.5,1,0,0,0,0
+Wan-Bissaka,Defender,Man Utd,4.3,1,0,0,0,0
+Willian,Midfielder,Fulham,5.5,1,0,0,0,1
+Ablade,Forward,Fulham,4.5,0,0,0,0,0
+Adrian,Goalkeeper,Liverpool,4.0,0,0,0,0,0
+Aguerd,Defender,West Ham,4.9,0,0,0,0,0
+Ajer,Defender,Brentford,4.5,0,0,0,0,0
+Akanji,Defender,Man City,5.0,0,0,0,0,0
+Albrighton,Midfielder,Leicester,4.8,0,0,0,0,0
+Allan,Midfielder,Everton,4.8,0,0,0,0,0
+Alonso,Defender,Chelsea,5.3,0,0,0,0,0
+Alzate,Midfielder,Brighton,4.4,0,0,0,0,0
+Amad,Midfielder,Man Utd,4.4,0,0,0,0,0
+Ampadu,Defender,Chelsea,4.4,0,0,0,0,0
+Andre Gomes,Midfielder,Everton,4.5,0,0,0,0,0
+Arrizabalaga,Goalkeeper,Chelsea,4.4,0,0,0,0,0
+Arter,Midfielder,Nottm Forest,4.4,0,0,0,0,0
+Arthur,Midfielder,Liverpool,5.0,0,0,0,0,0
+Ashby,Defender,West Ham,4.0,0,0,0,0,0
+Aubameyang,Forward,Chelsea,9.0,0,0,0,0,0
+Augustinsson,Defender,Aston Villa,4.3,0,0,0,0,0
+Austin,Goalkeeper,Spurs,4.0,0,0,0,0,0
+B.Williams,Defender,Man Utd,3.9,0,0,0,0,0
+Bade,Defender,Nottm Forest,4.5,0,0,0,0,0
+Bailly,Defender,Man Utd,4.0,0,0,0,0,0
+Balcombe,Goalkeeper,Brentford,4.0,0,0,0,0,0
+Barkley,Midfielder,Chelsea,4.9,0,0,0,0,0
+Bate,Midfielder,Leeds,4.5,0,0,0,0,0
+Begovic,Goalkeeper,Everton,4.0,0,0,0,0,0
+Benteke,Forward,Crystal Palace,5.5,0,0,0,0,0
+Bergwijn,Midfielder,Spurs,5.5,0,0,0,0,0
+Bertrand,Defender,Leicester,4.0,0,0,0,0,0
+Bidstrup,Midfielder,Brentford,4.5,0,0,0,0,0
+Boly,Defender,Nottm Forest,4.3,0,0,0,0,0
+Branthwaite,Defender,Everton,4.0,0,0,0,0,0
+Brooks,Midfielder,Bournemouth,5.3,0,0,0,0,0
+Brunt,Defender,Leicester,4.0,0,0,0,0,0
+Bryan,Defender,Fulham,4.4,0,0,0,0,0
+Bryan,Midfielder,Spurs,5.0,0,0,0,0,0
+Bueno,Defender,Wolves,4.0,0,0,0,0,0
+Butland,Goalkeeper,Crystal Palace,4.4,0,0,0,0,0
+Caballero,Goalkeeper,Southampton,4.0,0,0,0,0,0
+Caleta-Car,Defender,Southampton,4.5,0,0,0,0,0
+Calvert-Lewin,Forward,Everton,7.9,0,0,0,0,0
+Canos,Defender,Brentford,5.0,0,0,0,0,0
+Carson,Goalkeeper,Man City,3.9,0,0,0,0,0
+Cavaleiro,Midfielder,Fulham,4.8,0,0,0,0,0
+Chamberlain,Midfielder,Liverpool,4.9,0,0,0,0,0
+Chambers,Defender,Liverpool,4.0,0,0,0,0,0
+Chiquinho,Midfielder,Wolves,5.0,0,0,0,0,0
+Choudhury,Midfielder,Leicester,4.5,0,0,0,0,0
+Chukwuemeka,Midfielder,Chelsea,4.3,0,0,0,0,0
+Clark,Defender,Newcastle,4.5,0,0,0,0,0
+Clarke,Defender,Brighton,4.0,0,0,0,0,0
+Coleman,Defender,Everton,4.5,0,0,0,0,0
+Cooper,Defender,Leeds,4.4,0,0,0,0,0
+Cundle,Midfielder,Wolves,4.4,0,0,0,0,0
+Cedric,Defender,Arsenal,4.2,0,0,0,0,0
+Dallas,Defender,Leeds,4.9,0,0,0,0,0
+Darlow,Goalkeeper,Newcastle,4.0,0,0,0,0,0
+Davies,Defender,Liverpool,4.0,0,0,0,0,0
+Davis,Forward,Aston Villa,5.4,0,0,0,0,0
+Dawson,Defender,West Ham,4.8,0,0,0,0,0
+Delap,Forward,Man City,4.4,0,0,0,0,0
+Dembele,Midfielder,Bournemouth,4.8,0,0,0,0,0
+Dennis,Goalkeeper,Bournemouth,4.0,0,0,0,0,0
+Devine,Midfielder,Spurs,4.4,0,0,0,0,0
+Diego Costa,Forward,Wolves,5.5,0,0,0,0,0
+Drager,Defender,Nottm Forest,4.0,0,0,0,0,0
+Dubravka,Goalkeeper,Man Utd,4.3,0,0,0,0,0
+Dummett,Defender,Newcastle,3.9,0,0,0,0,0
+El Ghazi,Midfielder,Aston Villa,4.8,0,0,0,0,0
+Enciso,Forward,Brighton,4.8,0,0,0,0,0
+Fabio Silva,Forward,Wolves,5.5,0,0,0,0,0
+Faes,Defender,Leicester,4.5,0,0,0,0,0
+Ferguson,Defender,Crystal Palace,3.9,0,0,0,0,0
+Ferguson,Forward,Brighton,4.5,0,0,0,0,0
+Fernandez,Defender,Newcastle,4.4,0,0,0,0,0
+Firpo,Defender,Leeds,4.5,0,0,0,0,0
+Forss,Forward,Brentford,4.5,0,0,0,0,0
+Forster,Goalkeeper,Spurs,4.0,0,0,0,0,0
+Garner,Midfielder,Everton,4.5,0,0,0,0,0
+Gayle,Forward,Newcastle,4.5,0,0,0,0,0
+Gazzaniga,Goalkeeper,Fulham,4.0,0,0,0,0,0
+Gbamin,Midfielder,Everton,4.5,0,0,0,0,0
+Gnonto,Forward,Leeds,5.0,0,0,0,0,0
+Gomes,Midfielder,Man City,4.5,0,0,0,0,0
+Goode,Defender,Brentford,4.0,0,0,0,0,0
+Gray,Midfielder,Leeds,4.5,0,0,0,0,0
+Guilbert,Defender,Aston Villa,4.0,0,0,0,0,0
+Gyabi,Midfielder,Leeds,4.4,0,0,0,0,0
+H.Davies,Goalkeeper,Liverpool,4.0,0,0,0,0,0
+Hammond,Midfielder,Nottm Forest,4.4,0,0,0,0,0
+Harris,Midfielder,Fulham,4.5,0,0,0,0,0
+Hause,Defender,Aston Villa,4.4,0,0,0,0,0
+Heaton,Goalkeeper,Man Utd,4.0,0,0,0,0,0
+Hendrick,Midfielder,Newcastle,4.5,0,0,0,0,0
+Hennessey,Goalkeeper,Nottm Forest,4.0,0,0,0,0,0
+Hill,Defender,Bournemouth,4.4,0,0,0,0,0
+Hjelde,Defender,Leeds,3.9,0,0,0,0,0
+Hodge,Midfielder,Wolves,4.4,0,0,0,0,0
+Hudson-Odoi,Midfielder,Chelsea,5.3,0,0,0,0,0
+Iqbal,Midfielder,Man Utd,4.3,0,0,0,0,0
+Iroegbunam,Midfielder,Aston Villa,4.5,0,0,0,0,0
+Iversen,Goalkeeper,Leicester,3.9,0,0,0,0,0
+Johnstone,Goalkeeper,Crystal Palace,4.4,0,0,0,0,0
+Jones,Midfielder,Liverpool,4.9,0,0,0,0,0
+Jones,Defender,Man Utd,3.9,0,0,0,0,0
+Keita,Midfielder,Liverpool,4.8,0,0,0,0,0
+Kelleher,Goalkeeper,Liverpool,4.0,0,0,0,0,0
+Kenedy,Defender,Chelsea,3.9,0,0,0,0,0
+Kesler Hayden,Defender,Aston Villa,4.0,0,0,0,0,0
+Klaesson,Goalkeeper,Leeds,4.0,0,0,0,0,0
+Knight,Midfielder,Man City,4.5,0,0,0,0,0
+Knockaert,Midfielder,Fulham,4.8,0,0,0,0,0
+Konate,Defender,Liverpool,4.8,0,0,0,0,0
+Kongolo,Defender,Fulham,3.9,0,0,0,0,0
+Kovar,Goalkeeper,Man Utd,4.0,0,0,0,0,0
+Kozlowski,Midfielder,Brighton,4.5,0,0,0,0,0
+Kurzawa,Defender,Fulham,4.5,0,0,0,0,0
+Laporte,Defender,Man City,5.8,0,0,0,0,0
+Larios,Defender,Southampton,4.0,0,0,0,0,0
+Laryea,Defender,Nottm Forest,4.5,0,0,0,0,0
+Lascelles,Defender,Newcastle,4.3,0,0,0,0,2
+Lewis,Defender,Newcastle,4.4,0,0,0,0,0
+Lindelof,Defender,Man Utd,4.3,0,0,0,0,0
+Lis,Goalkeeper,Southampton,4.0,0,0,0,0,0
+Livramento,Defender,Southampton,4.4,0,0,0,0,0
+Lolley,Midfielder,Nottm Forest,4.9,0,0,0,0,0
+Manquillo,Defender,Newcastle,4.3,0,0,0,0,0
+Marquinhos,Midfielder,Arsenal,4.8,0,0,0,0,0
+Masuaku,Defender,West Ham,4.5,0,0,0,0,0
+Matthews,Goalkeeper,Crystal Palace,4.0,0,0,0,0,0
+Mbe Soh,Defender,Nottm Forest,4.3,0,0,0,0,0
+Mbete,Defender,Man City,3.9,0,0,0,0,0
+McArthur,Midfielder,Crystal Palace,4.8,0,0,0,0,0
+McAtee,Midfielder,Man City,4.5,0,0,0,0,0
+McCarthy,Goalkeeper,Southampton,4.4,0,0,0,0,0
+Mendy,Midfielder,Leicester,4.4,0,0,0,0,0
+Mills,Midfielder,Everton,4.5,0,0,0,0,0
+Moder,Midfielder,Brighton,4.4,0,0,0,0,0
+Mosquera,Defender,Wolves,3.9,0,0,0,0,0
+Muniz,Forward,Fulham,5.4,0,0,0,0,0
+Nakamba,Midfielder,Aston Villa,4.4,0,0,0,0,0
+Nelson,Midfielder,Arsenal,4.9,0,0,0,0,0
+Nkounkou,Defender,Everton,4.0,0,0,0,0,0
+Ojeda,Midfielder,Nottm Forest,4.5,0,0,0,0,0
+Oko-Flex,Midfielder,West Ham,4.4,0,0,0,0,0
+Olsen,Goalkeeper,Aston Villa,4.0,0,0,0,0,0
+Onomah,Midfielder,Fulham,4.4,0,0,0,0,0
+Ortega,Goalkeeper,Man City,3.9,0,0,0,0,0
+Pablo Mari,Defender,Arsenal,4.5,0,0,0,0,0
+Panzo,Defender,Nottm Forest,4.0,0,0,0,0,0
+Parrott,Forward,Spurs,4.5,0,0,0,0,0
+Pellistri,Midfielder,Man Utd,4.4,0,0,0,0,0
+Phillips,Midfielder,Crystal Palace,4.5,0,0,0,0,0
+Philogene-Bidace,Midfielder,Aston Villa,4.5,0,0,0,0,0
+Pinnock,Defender,Brentford,4.4,0,0,0,0,0
+Plange,Forward,Crystal Palace,4.5,0,0,0,0,0
+Pepe,Midfielder,Arsenal,5.3,0,0,0,0,0
+R.Williams,Defender,Liverpool,4.0,0,0,0,0,0
+Rak-Sakyi,Midfielder,Crystal Palace,4.5,0,0,0,0,0
+Ramsay,Defender,Liverpool,3.9,0,0,0,0,0
+Randolph,Goalkeeper,West Ham,4.0,0,0,0,0,0
+Raphinha,Midfielder,Leeds,7.0,0,0,0,0,0
+Reguilon,Defender,Spurs,4.2,0,0,0,0,0
+Renan Lodi,Defender,Nottm Forest,4.5,0,0,0,0,8
+Ricardo,Defender,Leicester,4.3,0,0,0,0,0
+Richards,Defender,Nottm Forest,4.4,0,0,0,0,0
+Richards,Midfielder,Brighton,4.5,0,0,0,0,0
+Riedewald,Midfielder,Crystal Palace,4.4,0,0,0,0,0
+Roberts,Defender,Brighton,4.0,0,0,0,0,0
+Roberts,Midfielder,Leeds,5.0,0,0,0,0,0
+Robles,Goalkeeper,Leeds,4.0,0,0,0,0,0
+Rodney,Midfielder,Crystal Palace,4.5,0,0,0,0,0
+Rodon,Defender,Spurs,4.0,0,0,0,0,0
+Ronan,Midfielder,Wolves,4.4,0,0,0,0,0
+Rothwell,Midfielder,Bournemouth,4.9,0,0,0,0,0
+Samba,Goalkeeper,Nottm Forest,4.5,0,0,0,0,0
+Sanson,Midfielder,Aston Villa,4.4,0,0,0,0,0
+Sarmiento,Midfielder,Brighton,4.5,0,0,0,0,0
+Sarr,Defender,Chelsea,5.0,0,0,0,0,0
+Sarr,Midfielder,Spurs,4.4,0,0,0,0,0
+Saydee,Forward,Bournemouth,4.5,0,0,0,0,0
+Scarlett,Forward,Spurs,4.5,0,0,0,0,0
+Scherpen,Goalkeeper,Brighton,4.0,0,0,0,0,0
+Schmeichel,Goalkeeper,Leicester,5.0,0,0,0,0,0
+Shackleton,Midfielder,Leeds,4.5,0,0,0,0,0
+Shelvey,Midfielder,Newcastle,4.9,0,0,0,0,0
+Skipp,Midfielder,Spurs,4.4,0,0,0,0,0
+Smallbone,Midfielder,Southampton,4.5,0,0,0,0,0
+Smith,Midfielder,Arsenal,4.5,0,0,0,0,0
+Smith,Goalkeeper,Wolves,4.0,0,0,0,0,0
+Smithies,Goalkeeper,Leicester,4.0,0,0,0,0,0
+Stacey,Defender,Bournemouth,4.3,0,0,0,0,4
+Steele,Goalkeeper,Brighton,4.0,0,0,0,0,0
+Steffen,Goalkeeper,Man City,4.0,0,0,0,0,0
+Stevens,Defender,Brentford,4.0,0,0,0,0,0
+Strakosha,Goalkeeper,Brentford,4.4,0,0,0,0,0
+Soyuncu,Defender,Leicester,4.3,0,0,0,0,0
+Tanganga,Defender,Spurs,3.9,0,0,0,0,0
+Tavares,Defender,Arsenal,4.5,0,0,0,0,0
+Taylor,Forward,Nottm Forest,4.4,0,0,0,0,0
+Tella,Midfielder,Southampton,5.0,0,0,0,0,0
+Telles,Defender,Man Utd,5.0,0,0,0,0,0
+Thompson,Defender,Brentford,4.0,0,0,0,0,0
+Tomkins,Defender,Crystal Palace,3.9,0,0,0,0,0
+Torreira,Midfielder,Arsenal,4.5,0,0,0,0,0
+Toti,Defender,Wolves,3.9,0,0,0,0,0
+Townsend,Midfielder,Everton,5.5,0,0,0,0,0
+Traore,Midfielder,Aston Villa,4.9,0,0,0,0,0
+Turner,Goalkeeper,Arsenal,3.9,0,0,0,0,0
+Vale,Midfielder,Chelsea,4.5,0,0,0,0,0
+Valery,Defender,Southampton,4.0,0,0,0,0,2
+Van den Berg,Defender,Liverpool,4.0,0,0,0,0,0
+Vestergaard,Defender,Leicester,3.9,0,0,0,0,0
+Vlasic,Midfielder,West Ham,5.0,0,0,0,0,0
+Walcott,Midfielder,Southampton,4.9,0,0,0,0,0
+Warrington,Midfielder,Everton,4.4,0,0,0,0,0
+Welch,Defender,Everton,4.0,0,0,0,0,0
+Werner,Forward,Chelsea,7.9,0,0,0,0,0
+White,Midfielder,Spurs,4.4,0,0,0,0,0
+Whitworth,Goalkeeper,Crystal Palace,4.0,0,0,0,0,0
+Wilson,Midfielder,Fulham,5.8,0,0,0,0,0
+Wilson-Esbrand,Defender,Man City,3.9,0,0,0,0,0
+Winks,Midfielder,Spurs,4.4,0,0,0,0,0
+Xande Silva,Midfielder,Nottm Forest,5.0,0,0,0,0,0
+Zakaria,Midfielder,Chelsea,5.0,0,0,0,0,0
+Sarkic,Goalkeeper,Wolves,4.0,0,0,0,0,0
+Maguire,Defender,Man Utd,4.7,-1,0,0,0,6
+Senesi,Defender,Bournemouth,4.5,-1,0,0,0,11
+Shaw,Defender,Man Utd,4.7,-1,0,0,0,6
+Thomas,Defender,Leicester,4.3,-1,0,0,0,6

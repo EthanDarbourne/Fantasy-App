@@ -8,9 +8,18 @@ namespace FPL_Project.Players
 {
     public enum Positions
     {
-        Goalkeeper,
-        Defender,
-        Midfielder,
-        Forward
+        Goalkeeper = 1,
+        Defender = 2,
+        Midfielder = 3,
+        Forward = 4,
     }
+
+	public static class PositionReader
+	{
+		public static Positions ReadPosition( string s )
+		{
+			if ( !Enum.TryParse( s, out Positions pos ) ) throw new Exception( "Invalid Position" );
+			return pos;
+		}
+	}
 }
