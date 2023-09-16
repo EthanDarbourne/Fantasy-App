@@ -26,7 +26,7 @@ namespace FPL_Project.Players
 		NottmForest = 16,
         Everton = 17,
         Burnley = 18,
-		Sheffield = 19,
+		SheffieldUtd = 19,
 		Luton = 20,
 	}
 
@@ -35,7 +35,7 @@ namespace FPL_Project.Players
 
 		public static Teams ReadTeam(string s)
 		{
-			if ( !Enum.TryParse( s.Remove( ' ' ), out Teams team ) ) throw new Exception( "Invalid Team" );
+			if ( !Enum.TryParse( s.Replace( " ", "" ), out Teams team ) ) throw new Exception( "Invalid Team" );
 			return team;
 		}
 	}

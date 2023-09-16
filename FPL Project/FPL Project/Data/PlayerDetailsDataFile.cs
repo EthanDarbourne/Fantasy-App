@@ -10,44 +10,48 @@ namespace FPL_Project.Data
 {
 	public class PlayerDetailsDataFile : DataFile
 	{
-
-		private PlayerDetailsCollection PlayerDetails_ = new();
-
 		
 
-		public PlayerDetailsDataFile() : base("PlayerDetails")
+		public PlayerDetailsDataFile() : base( "Data/PlayerDetails.csv" )
 		{
 			
 		}
 
-		public override void ReadFile()
+		public PlayerDetailsDataFile(string fileName) : base( fileName )
 		{
+
+		}
+
+		public override string Header => "Name,Team,Position,Price";
+
+		public override Collection ReadDataFile()
+		{
+			var players = new PlayerDetailsCollection();
+			if ( !File.Exists( fileName ) ) return players;
 
 			using StreamReader r = new StreamReader( fileName );
-			string line;
+			string line = r.ReadLine(); // header
 			while ( ( line = r.ReadLine() ) != null )
 			{
-				PlayerDetails_.AddPlayerDetails( PlayerDetails.LoadPlayerDetails( line ) );
+				var player = new PlayerDetails();
+				player.LoadFromLine( line );
+				players.AddPlayerDetails( player );
 			}
-
+			r.Close();
+			return players;
 		}
 
-		public void AddPlayerDetails( PlayerDetails playerDetails )
-		{
-			NeedsWrite_ = true;
-			PlayerDetails_.AddPlayerDetails( playerDetails );
-		}
-
-		public override void WriteToFile()
+		public override void WriteToFile(Collection players)
 		{
 			using StreamWriter w = new StreamWriter( fileName );
-				
-			foreach (PlayerDetails player in PlayerDetails_)
+
+			w.WriteLine( Header );
+			foreach (PlayerDetails player in players )
 			{
 				w.WriteLine( player.Stringify() );
 			}
-				
-			
+
+			w.Close();
 		}
 	}
 }

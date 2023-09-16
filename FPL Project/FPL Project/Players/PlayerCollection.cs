@@ -27,7 +27,7 @@ namespace FPL_Project.Players
 
         public void AddPlayer(Player player)
         {
-            Players_.Add(player.Name_, player);
+            Players_.Add(player.Name, player);
             PlayersByTeam_[ ( int ) player.Team ].Add( player );
         }
 

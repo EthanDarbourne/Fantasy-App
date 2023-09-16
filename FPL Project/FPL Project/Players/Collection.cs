@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,12 +10,41 @@ namespace FPL_Project.Players
 {
 	public abstract class Collection : IEnumerator, IEnumerable
 	{
-		protected List<Data>
+		protected List<Info> Info_ = new();
 
-		public abstract object Current { get; }
+		private int Index_ = -1;
 
-		public abstract IEnumerator GetEnumerator();
-		public abstract bool MoveNext();
-		public abstract void Reset();
+		public object Current => Info_[ Index_ ];
+
+		public bool MoveNext()
+		{
+
+			if ( Index_ >= Info_.Count - 1 ) return false;
+			++Index_;
+			return true;
+		}
+
+		public void Reset()
+		{
+			Index_ = -1;
+		}
+
+		public IEnumerator GetEnumerator()
+		{
+			return this;
+		}
+
+		protected bool DeleteInfo(Func<Info, bool> filter)
+		{
+			for(int i = 0; i < Info_.Count; ++i)
+			{
+				if(filter(Info_[i]))
+				{
+					Info_.RemoveAt( i );
+					return true;
+				}
+			}
+			return false;
+		}
 	}
 }

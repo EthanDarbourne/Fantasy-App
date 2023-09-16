@@ -48,37 +48,41 @@ namespace FPL_Project.Players
 
 		}
 
+		public GameweekData(int week)
+		{
+			Week_ = week;
+		}
+
 		// public static GameweekData LoadPlayer(string line)
 		public override void LoadFromLine(string line)
 		{
-			var ret = new GameweekData();
 
 			var vals = line.Split( ',' );
 
 			Debug.Assert(vals.Length == 14);
 
-			ret.Name_ = vals[ 0 ];
-			ret.Week_ = int.Parse( vals[ 1 ] );
-			ret.Points_ = int.Parse( vals[ 2 ] );
-			ret.MinutesPlayed_ = int.Parse( vals[ 3 ] );
-			ret.Goals_ = int.Parse( vals[ 4 ] );
-			ret.Assists_ = int.Parse( vals[ 5 ] );
-			ret.xGoals_ = int.Parse( vals[ 6 ] );
-			ret.xAssists_ = double.Parse( vals[ 7 ] );
-			ret.CleanSheets_ = int.Parse( vals[ 8 ] );
-			ret.GoalsConceded_ = int.Parse( vals[ 9 ] );
-			ret.xGoalsConceded_ = double.Parse( vals[ 10 ] );
-			ret.Saves_ = int.Parse( vals[ 11 ] );
-			ret.BonusPoints_ = int.Parse( vals[ 12 ] );
-			ret.BonusPointsRating_ = int.Parse( vals[ 13 ] );
-
-			
+			Name_ = vals[ 0 ];
+			Week_ = int.Parse( vals[ 1 ] );
+			Points_ = int.Parse( vals[ 2 ] );
+			MinutesPlayed_ = int.Parse( vals[ 3 ] );
+			Goals_ = int.Parse( vals[ 4 ] );
+			Assists_ = int.Parse( vals[ 5 ] );
+			xGoals_ = double.Parse( vals[ 6 ] );
+			xAssists_ = double.Parse( vals[ 7 ] );
+			CleanSheets_ = int.Parse( vals[ 8 ] );
+			GoalsConceded_ = int.Parse( vals[ 9 ] );
+			xGoalsConceded_ = double.Parse( vals[ 10 ] );
+			Saves_ = int.Parse( vals[ 11 ] );
+			BonusPoints_ = int.Parse( vals[ 12 ] );
+			BonusPointsRating_ = int.Parse( vals[ 13 ] );
 
 		}
 
 		public override string Stringify()
 		{
 			var str = new StringBuilder();
+
+			str.Append( Name + ',' );
 
 			str.AppendJoin( ',', new double[]{ Week, Points, MinutesPlayed, Goals, Assists, xGoals, xAssists,
 				CleanSheets, GoalsConceded, xGoalsConceded, Saves, BonusPoints, BonusPointsRating } );

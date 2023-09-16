@@ -13,11 +13,5 @@ namespace FPL_Project.Players
 
 		public abstract void LoadFromLine( string line );
 
-		public abstract string Header
-		{
-			get;
-		}
-
-
 	}
 }

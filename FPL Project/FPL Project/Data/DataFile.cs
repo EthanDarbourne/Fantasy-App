@@ -15,21 +15,22 @@ namespace FPL_Project.Data
 
 		public DataFile( string fileName )
 		{
-			this.fileName = "Data/" + fileName;
-			if ( File.Exists( fileName ) )
-			{
-				ReadFile();
-			}
+			this.fileName = "../../../../../" + fileName;
 		}
 
+		public abstract string Header { get; }
 
-		public abstract Collection ReadFile();
+		public abstract Collection ReadDataFile();
 
-		public abstract void WriteToFile();
+		public abstract void WriteToFile( Collection collection );
 
-		~DataFile()
-		{
-			WriteToFile();
-		}
+		//public Collection ReadFile()
+		//{
+		//	if ( File.Exists( fileName ) )
+		//	{
+		//		return ReadDataFile();
+		//	}
+		//	throw new FileNotFoundException();
+		//}
 	}
 }

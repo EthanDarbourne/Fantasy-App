@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Players
 {
-	public class PlayerDetails
+	public class PlayerDetails : Info
 	{
 
 
 		private string Name_;
 		private Teams Team_;
 		private Positions Position_;
+		private double Price_;
 
 
 		public PlayerDetails()
@@ -21,11 +22,12 @@ namespace FPL_Project.Players
 
 		}
 
-		public PlayerDetails(string name, Teams team, Positions position )
+		public PlayerDetails(string name, Teams team, Positions position, double price )
 		{
 			Name_ = name;
 			Team_ = team;
 			Position_ = position;
+			Price_ = price;
 		}
 
 		public string Name => Name_;
@@ -34,27 +36,24 @@ namespace FPL_Project.Players
 		
 
 
-		public static PlayerDetails LoadPlayerDetails(string line)
+		public override void LoadFromLine(string line)
 		{
-			var ret = new PlayerDetails();
-
 			var vals = line.Split( ',' );
 
-			Debug.Assert( vals.Length == 3 );
+			//Debug.Assert( vals.Length == 3 );
 
-			ret.Name_ = vals[ 0 ];
-			ret.Position_ = PositionReader.ReadPosition( vals[ 1 ] );
-			ret.Team_ = TeamReader.ReadTeam( vals[ 2 ] );
-
-			return ret;
+			Name_ = vals[ 0 ];
+			Team_ = TeamReader.ReadTeam( vals[ 1 ] );
+			Position_ = PositionReader.ReadPosition( vals[ 2 ] );
+			Price_ = double.Parse( vals[ 3 ] );
 		}
 
 
-		public string Stringify()
+		public override string Stringify()
 		{
 			var str = new StringBuilder();
 
-			str.AppendJoin( ',', new string[] { Name, Team.ToString(), Position.ToString() } );
+			str.AppendJoin( ',', new string[] { Name, Team.ToString(), Position.ToString(), Price_.ToString() } );
 
 			return str.ToString();
 		}

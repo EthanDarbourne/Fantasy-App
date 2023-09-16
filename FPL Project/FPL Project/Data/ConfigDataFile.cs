@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FPL_Project.Players;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,61 +7,49 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Data
 {
-	internal class ConfigDataFile : DataFile
+	public class ConfigDataFile : DataFile
 	{
 
-		private Dictionary<string, string> Pairs_ = new();
+		
 
 
-		public ConfigDataFile() : base( $"Config.csv" )
+		public ConfigDataFile() : base( $"Data/Config.csv" )
 		{
 
 		}
 
-		public override void ReadFile()
+		public override string Header => "Key,Value";
+
+		public override Collection ReadDataFile()
 		{
+			var config = new ConfigCollection();
+			if ( !File.Exists( fileName ) ) return config;
+
 			using StreamReader r = new( fileName );
 
-			string line;
+			string line = r.ReadLine(); // header
 			while ( ( line = r.ReadLine() ) != null )
 			{
 				var vals = line.Split( ',' );
-				Pairs_[ vals[ 0 ] ] = vals[ 1 ];
+				config.AddPair( vals[0], vals[1] );
 			}
-
+			r.Close();
+			return config;
 		}
 
-		public void UpdateValue(string key, string value )
+		
+
+		public override void WriteToFile(Collection config)
 		{
-			if(Pairs_.ContainsKey(key))
+			using StreamWriter w = new ( fileName );
+
+			w.WriteLine( "Key,Value" );
+
+			foreach(Info key in config)
 			{
-				NeedsWrite_ = true;
-				Pairs_[key] = Pairs_[ value ];
+				w.WriteLine( key.Stringify() );
 			}
-		}
-
-		public void AddKey(string key, string value)
-		{
-			if(!Pairs_.ContainsKey(key))
-			{
-				NeedsWrite_ = true;
-				Pairs_.Add( key, value );
-			}
-		}
-
-		public bool ContainsKey(string key)
-		{
-			return Pairs_.ContainsKey( key );
-		}
-
-		public override void WriteToFile()
-		{
-			using StreamWriter streamWriter = new ( fileName );
-
-			foreach(var key in Pairs_.Keys)
-			{
-				streamWriter.WriteLine( key + "," + Pairs_[ key ] );
-			}
+			w.Close();
 		}
 	}
 }
