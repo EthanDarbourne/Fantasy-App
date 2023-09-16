@@ -1,13 +1,13 @@
-﻿using FPL_Project.Players;
+﻿using FPL_Project.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FPL_Project.Data
+namespace FPL_Project.DataFiles
 {
-	public abstract class DataFile
+    public abstract class DataFile
 	{
 
 		protected string fileName;

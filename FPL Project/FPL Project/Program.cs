@@ -1,7 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using FPL_Project.Collections;
 using FPL_Project.Data;
 using FPL_Project.Players;
-using System.Runtime.ExceptionServices;
+using FPL_Project.DataFiles;
 using System.Text;
 
 var ConfigData = new ConfigDataFile();
@@ -326,6 +327,8 @@ try
             case "lookupplayer":
                 LookupPlayer();
                 break;
+            case "generatedata":
+                
             case "quit":
             case "q":
                 WriteToAllFiles();

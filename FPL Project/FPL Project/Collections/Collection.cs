@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FPL_Project.Data;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FPL_Project.Players
+namespace FPL_Project.Collections
 {
 	public abstract class Collection : IEnumerator, IEnumerable
 	{

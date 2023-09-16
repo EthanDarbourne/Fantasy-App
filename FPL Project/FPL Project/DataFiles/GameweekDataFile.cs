@@ -1,4 +1,5 @@
-﻿using FPL_Project.Players;
+﻿using FPL_Project.Collections;
+using FPL_Project.Players;
 using System;
 using System.Collections.Generic;
 using System.IO.Enumeration;
@@ -6,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FPL_Project.Data
+namespace FPL_Project.DataFiles
 {
-	public class GameweekDataFile : DataFile
+    public class GameweekDataFile : DataFile
 	{
 
 		private int Gameweek_;
