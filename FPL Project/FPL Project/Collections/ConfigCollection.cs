@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Data;
+using FPL_Project.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace FPL_Project.Collections
 			{
 				var config = new ConfigPair( key, value );
 				Pairs_.Add( key, config );
-				Info_.Add( config );
+				AddInfo( config );
 			}
 		}
 

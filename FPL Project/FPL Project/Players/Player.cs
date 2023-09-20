@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FPL_Project.Data;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Players
 {
-    public class Player
+    public class Player : Info
 	{
 
         private string Name_ = "";
@@ -67,9 +68,19 @@ namespace FPL_Project.Players
 			return ret;
         }
 
+        public override void LoadFromLine( string line )
+        {
+            throw new NotImplementedException();
+        }
+
         public void Print()
         {
 
+        }
+
+        public override string Stringify()
+        {
+            throw new NotImplementedException();
         }
     }
 }

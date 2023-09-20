@@ -17,7 +17,6 @@ namespace FPL_Project.Players
 		private Positions Position_;
 		private double Price_;
 
-
 		public PlayerDetails()
 		{
 
@@ -34,7 +33,7 @@ namespace FPL_Project.Players
 		public string Name => Name_;
 		public Teams Team => Team_;
 		public Positions Position => Position_;
-		
+		public double Price => Price_;
 
 
 		public override void LoadFromLine(string line)

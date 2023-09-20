@@ -30,7 +30,7 @@ namespace FPL_Project.Collections
 		{
 			Players_.Add( player.Name, player );
 			PlayersByTeam_[ ( int ) player.Team ].Add( player );
-			Info_.Add( player ); // need to add this in order of players
+			AddInfo( player );
 		}
 
 		public bool DeletePlayer( string player )

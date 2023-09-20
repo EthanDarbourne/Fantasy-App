@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Data;
+using FPL_Project.Players;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace FPL_Project.Collections
 		public void AddInfo(Info info, string reason)
 		{
 			Reasons_.Add( reason );
-			Info_.Add( info );
+			AddInfo( info );
 		}
 
 		public string GetReason(int i)

@@ -42,7 +42,7 @@ namespace FPL_Project.Collections
 			}
 			Players_.Add( player.Name, player );
 			PlayersByTeam_[ ( int ) player.Team - 1].Add( player );
-			Info_.Add( player );
+			AddInfo( player );
 		}
 
 		public bool DeletePlayer(string player)

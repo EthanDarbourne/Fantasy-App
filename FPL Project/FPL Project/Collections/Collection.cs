@@ -35,6 +35,11 @@ namespace FPL_Project.Collections
 			return this;
 		}
 
+		protected void AddInfo(Info info)
+		{
+			Info_.Add( info );
+		}
+
 		protected bool DeleteInfo(Func<Info, bool> filter)
 		{
 			for(int i = 0; i < Info_.Count; ++i)
