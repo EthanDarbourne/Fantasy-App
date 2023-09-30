@@ -8,6 +8,7 @@ using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace FPL_Project.Collections
 {
@@ -15,6 +16,7 @@ namespace FPL_Project.Collections
 	{
 
 		private Dictionary<string, PlayerDetails> Players_ = new();
+		private Dictionary<int, string> PlayersById_ = new();
 
 		private List<List<PlayerDetails>> PlayersByTeam_ = new();
 		public int Team_ = 0;
@@ -40,22 +42,24 @@ namespace FPL_Project.Collections
 			{
 				return;
 			}
+			PlayersById_.Add( player.Id, player.Name);
 			Players_.Add( player.Name, player );
 			PlayersByTeam_[ ( int ) player.Team - 1].Add( player );
 			AddInfo( player );
 		}
 
-		public bool DeletePlayer(string player)
+		public bool DeletePlayer( string player )
 		{
 			if ( !Players_.ContainsKey( player ) )
 			{
 				return false;
 			}
 			DeleteInfo( info => ( info as PlayerDetails )!.Name == player );
+			var playerDetail = Players_[ player ];
+			PlayersById_.Remove( playerDetail.Id);
 			Players_.Remove( player );
 			for ( int i = 0; i < 20; ++i )
 			{
-				bool found = false;
 				for ( int j = 0; j < PlayersByTeam_[ i ].Count; ++j )
 				{
 					if ( PlayersByTeam_[ i ][ j ].Name == player )
@@ -64,8 +68,6 @@ namespace FPL_Project.Collections
 						return true;
 					}
 				}
-				if ( found ) break;
-
 			}
 			return false; // won't get here
 		}
@@ -76,33 +78,15 @@ namespace FPL_Project.Collections
 			return player;
 		}
 
-		public static PlayerDetailsCollection LoadFromDataFile()
+		public bool ContainsPlayerId(int playerId)
 		{
-			var players = new PlayerDetailsCollection();
-
-			var playerData = new PlayerDetailsDataFile();
-
-			return players;
+			return PlayersById_.ContainsKey( playerId );
 		}
 
-		//public override bool MoveNext()
-		//{
-		//	if ( Team_ >= PlayersByTeam_.Count ) return false;
-		//	if ( Player_ == PlayersByTeam_[ Team_ ].Count - 1 ) ++Team_;
-		//	if ( Team_ == PlayersByTeam_.Count ) return false;
-		//	++Player_;
-		//	return true;
-		//}
-
-		//public override void Reset()
-		//{
-		//	Team_ = 0;
-		//	Player_ = 0;
-		//}
-
-		//public override IEnumerator GetEnumerator()
-		//{
-		//	return ( IEnumerator ) this;
-		//}
+		public string? GetPlayerNameById(int playerId)
+		{
+			PlayersById_.TryGetValue( playerId, out var player );
+			return player;
+		}
 	}
 }

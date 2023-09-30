@@ -4,19 +4,23 @@ using FPL_Project.Data;
 using FPL_Project.Players;
 using FPL_Project.DataFiles;
 using System.Text;
+using FPL_Project.FantasyApi;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 var ConfigData = new ConfigDataFile();
 
 //var Players = new PlayerCollection(); // Data
 var PlayerDetailsData = new PlayerDetailsDataFile();
-var GameweekData = new List<GameweekDataFile>(); // one for each gameweek that has passed
+var FixtureData = new FixtureDataFile();
 var DeletedData = new DeletedDataFile();
-
+var GameweekData = new List<GameweekDataFile>(); // one for each gameweek that has passed
 
 var ConfigCollection = ConfigData.ReadDataFile() as ConfigCollection;
 var PlayerCollection = PlayerDetailsData.ReadDataFile() as PlayerDetailsCollection;
+var FixturesCollection = FixtureData.ReadDataFile() as FixtureCollection;
+var DeletedCollection = new DeletedCollection(); // not loaded, only appended to file
 var GameweeksCollection = new List<GameweekDataCollection>();
-var DeletedCollection = new DeletedCollection();
 
 var TotalWeeks = int.Parse( ConfigCollection.GetValue( "Gameweek" ) );
 
@@ -24,6 +28,7 @@ for (int week = 1; week <= TotalWeeks; ++week)
 {
     GameweekData.Add( new GameweekDataFile( week ) );
 	GameweeksCollection.Add( GameweekData[ week - 1 ].ReadDataFile() as GameweekDataCollection );
+
 } 
 
 
@@ -73,18 +78,17 @@ GameweekData GetGameweekData(string name, int week)
 
     var input = Console.ReadLine().Trim();
 
-    var given = input.Split( '\t' ).Skip(3).ToArray();
+    if(input == "0")
+    {
+        line.Append(",0,0,0,0,0,0,0,0,0,0,0,0");
+    }
+    else
+    {
+		var given = input.Split( '\t' ).Skip( 3 ).ToArray();
 
-    line.AppendJoin( ',', new string[] { given[ 0 ], given[ 2 ], given[ 3 ], given[ 4 ], given[ 5 ], given[ 6 ], given[ 8 ], given[ 9 ], given[ 10 ], given[16], given[ 17 ], given[ 18 ] } );
-
- //   for(int i = 2; i < attributes.Length; ++i)
- //   {
-	//	Console.Write( $"Enter {attributes[i]}: " );
- //       var input = Console.ReadLine().Trim();
-	//	line += ',' + input;
- //       if ( input == "redo" ) return GetGameweekData( name, week );
-	//}
-
+		line.AppendJoin( ',', new string[] { given[ 0 ], given[ 2 ], given[ 3 ], given[ 4 ], given[ 5 ], given[ 6 ], given[ 8 ], given[ 9 ], given[ 10 ], given[ 16 ], given[ 17 ], given[ 18 ] } );
+	}
+    
 	ret.LoadFromLine( line.ToString() );
 
     Console.WriteLine( GameweekData[ 0 ].Header );
@@ -158,6 +162,12 @@ void EnterMultipleWeeks()
 	TotalWeeks += weeks;
 }
 
+// one-off
+async Task LoadFixtureData()
+{
+    FixturesCollection = await FantasyApi.LoadFixtureDetails();
+}
+
 bool AddNewPlayer()
 {
 	Console.Write( "Enter player name: " );
@@ -201,6 +211,19 @@ void AddPlayersFromFile()
     foreach(PlayerDetails player in players)
     {
         PlayerCollection.AddPlayerDetails( player );
+	}
+}
+
+void AddGameweekData()
+{
+	Console.Write( "Enter player name : " );
+	var name = Console.ReadLine();
+
+	for ( int week = 1; week <= TotalWeeks; ++week )
+	{
+		Console.WriteLine( $"Enter data for gameweek {week}" );
+		var data = GetGameweekData( name, week );
+		GameweeksCollection[ week ].UpdatePlayer( data );
 	}
 }
 
@@ -258,7 +281,7 @@ void LookupPlayer()
         Console.WriteLine( $"Header: {GameweekData[0].Header}" );
 		for ( int i = 0; i < GameweeksCollection.Count; ++i )
 		{
-            Console.WriteLine($"Gameweek {i + 1} : {GameweeksCollection[ i ].GetGameweekData( playername ).Stringify()}");
+            Console.WriteLine($"Gameweek {i + 1} : {GameweeksCollection[ i ].GetGameweekData( playername )?.Stringify()}");
 		}
 	}
 }
@@ -285,7 +308,67 @@ void WriteToAllFiles()
 		}
 		GameweekData[ week - 1 ].WriteToFile( GameweeksCollection[ week - 1 ] );
     }
-    DeletedData.WriteToFile( DeletedCollection );
+    FixtureData.WriteToFile( FixturesCollection );
+
+	DeletedData.WriteToFile( DeletedCollection );
+}
+
+
+async Task ReloadAllData()
+{
+    TotalWeeks = await FantasyApi.GetWeeksPlayed();
+
+	PlayerCollection = await FantasyApi.LoadNewPlayerDetails( PlayerCollection );
+
+    for(int week = 1; week <= TotalWeeks; ++week)
+    {
+		var gameweekData = await FantasyApi.GetFullGameweekData( week, PlayerCollection );
+		foreach ( PlayerDetails player in PlayerCollection )
+		{
+			var data = gameweekData.GetGameweekData( player.Name );
+			if ( data is null )
+			{
+				var gwData = new GameweekData();
+				gwData.SetExtraInfo( player.Id, player.Name, player.Team, gameweekData.Week );
+				gameweekData.AddPlayer( gwData );
+				Console.WriteLine( $"Added missing Gameweek data for {player.Name}, {player.Team}" );
+            }
+		}
+		GameweeksCollection[ week - 1 ] = gameweekData;
+	}
+
+    
+}
+
+void LoadSpecialData()
+{
+
+    var fullPlayers = new FullPlayerCollection();
+
+    var playerStrings = new List<string>();
+
+    foreach(PlayerDetails player in PlayerCollection)
+    {
+        var sb = new StringBuilder(player.Name);
+        var gwData = new List<GameweekData>();
+        int goals = 0;
+        foreach(var gameweek in GameweeksCollection)
+        {
+            var data = gameweek.GetGameweekData( player.Name );
+			sb.Append( $",{data.Goals}" );
+            goals += data.Goals;
+
+        }
+
+        if(goals > 0)playerStrings.Add( sb.ToString() );
+    }
+	using var w = new StreamWriter( "../../../../../Data/GoalsScored.csv" );
+    w.WriteLine( "Name,Week1,Week2,Week3,Week4,Week5,Week6" );
+	foreach ( var s in playerStrings )
+	{
+		w.WriteLine( s );
+	}
+    w.Close();
 }
 
 bool quit = false;
@@ -301,7 +384,10 @@ try
 
         switch ( instr.ToLower() )
         {
-            case "getdatainfo":
+            case "v":
+                LoadSpecialData();
+                break;
+			case "getdatainfo":
                 PrintDataInfo();
                 break;
             case "enternewweek":
@@ -310,7 +396,13 @@ try
             case "entermultipleweeks":
                 EnterMultipleWeeks();
                 break;
-            case "addnewplayer":
+            case "loadfixturedata":
+                await LoadFixtureData();
+                break;
+            case "addgameweekdata":
+                AddGameweekData();
+                break;
+			case "addnewplayer":
                 AddNewPlayer();
                 break;
             case "addplayersuntilquit":
@@ -322,8 +414,10 @@ try
             case "deleteplayer":
                 DeletePlayer();
                 break;
-            case "reloadplayerdetails":
-                break;
+            case "reloadalldata":
+            case "u":
+				await ReloadAllData();
+				break;
             case "lookupplayer":
                 LookupPlayer();
                 break;
@@ -353,7 +447,10 @@ try
 }
 catch(Exception e)
 {
-    WriteToAllFiles();
     Console.WriteLine( e.ToString() );
+    WriteToAllFiles();
     return;
 }
+
+
+// need to save all player names we want to a different file that never gets changed so we know what players to grab from fantasy api

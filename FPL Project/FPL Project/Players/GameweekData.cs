@@ -4,15 +4,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using FPL_Project.Data;
+using Newtonsoft.Json;
 
 namespace FPL_Project.Players
 {
 	public class GameweekData : Info
 	{
 		private string Name_;
+		private int Id_;
 		private Teams Team_;
-		private Positions Position_;
 		private int Week_;
 		private int Points_;
 		private int MinutesPlayed_;
@@ -28,8 +30,8 @@ namespace FPL_Project.Players
 		private int BonusPointsRating_;
 
 		public string Name => Name_;
+		public int Id => Id_;
 		public Teams Team => Team_;
-		public Positions Position => Position_;
 		public int Week => Week_;
 		public int Points => Points_;
 		public int MinutesPlayed => MinutesPlayed_;
@@ -51,6 +53,34 @@ namespace FPL_Project.Players
 
 		public GameweekData(int week)
 		{
+			Week_ = week;
+		}
+
+		[JsonConstructor]
+		public GameweekData(int total_points, int minutes, int goals_scored, int assists, int clean_sheets, int goals_conceded, int saves, int bonus, int bps,
+			double expected_goals, double expected_assists, double expected_goals_conceded)
+		{
+			Points_ = total_points;
+			MinutesPlayed_ = minutes;
+			Goals_ = goals_scored;
+			Assists_ = assists;
+			xGoals_ = expected_goals;
+			xAssists_ = expected_assists;
+			CleanSheets_ = clean_sheets;
+			GoalsConceded_ = goals_conceded;
+			xGoalsConceded_ = expected_goals_conceded;
+			Saves_ = saves;
+			BonusPoints_ = bonus;
+			BonusPointsRating_ = bps;
+		}
+
+
+		// gameweek data json doesn't contain name or id
+		public void SetExtraInfo(int id, string name, Teams team, int week)
+		{
+			Id_ = id;
+			Name_ = name;
+			Team_ = team;
 			Week_ = week;
 		}
 

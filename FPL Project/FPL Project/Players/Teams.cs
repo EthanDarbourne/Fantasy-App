@@ -33,10 +33,33 @@ namespace FPL_Project.Players
 	public static class TeamReader
 	{
 
+		private static List<string> TeamsAsStrings = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Liverpool", "Luton",
+															"ManCity", "ManUtd", "Newcastle", "NottmForest", "SheffieldUtd", "Spurs", "WestHam", "Wolves", };
+
 		public static Teams ReadTeam(string s)
 		{
-			if ( !Enum.TryParse( s.Replace( " ", "" ), out Teams team ) ) throw new Exception( "Invalid Team" );
+			if(int.TryParse(s, out var i))
+			{
+				return ( Teams ) i;
+			}
+			if ( !Enum.TryParse( s.Replace( " ", "" ), out Teams team ) )
+			{
+				foreach(var t in TeamsAsStrings )
+				{
+					if(t.ToLower() == s.ToLower())
+					{
+						return ReadTeam( t );
+					}
+				}
+				throw new Exception( "Invalid Team" );
+
+			}
 			return team;
+		}
+		
+		public static Teams ReadTeam(int i)
+		{
+			return (Teams)i;
 		}
 	}
 }

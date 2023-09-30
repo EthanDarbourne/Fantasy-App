@@ -13,7 +13,7 @@ namespace FPL_Project.DataFiles
 		{
 		}
 
-		public override string Header => "Name,Team,Position,"
+		public override string Header => "Name,Team,Position,";
 
 		public override Collection ReadDataFile()
 		{
