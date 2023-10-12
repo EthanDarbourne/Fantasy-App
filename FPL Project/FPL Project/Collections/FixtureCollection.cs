@@ -27,6 +27,16 @@ namespace FPL_Project.Collections
 			Fixtures_[ fixture.Gameweek ].Add( fixture );
 		}
 
+		public List<Fixture> GetFixtures(int gameweek, Teams team)
+		{
+			var ret = new List<Fixture>();
+			foreach ( var fixture in Fixtures_[ gameweek ] )
+			{
+				if ( fixture.Home == team || fixture.Away == team ) ret.Add(fixture);
+			}
+			return ret;
+		}
+
 		// problem: when playing two games
 		public Teams GetOpponent(int gameweek, Teams team)
 		{

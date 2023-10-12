@@ -2,21 +2,9 @@
 using FPL_Project.Data;
 using FPL_Project.Players;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Net.WebRequestMethods;
+using System.Globalization;
 
-namespace FPL_Project.FantasyApi
+namespace FPL_Project.Api
 {
 	public static class FantasyApi
 	{
@@ -79,13 +67,41 @@ namespace FPL_Project.FantasyApi
 			{
 				if ( !(bool)fixture[ "finished" ]! ) continue;
 
+				var id = ( int ) fixture[ "id" ];
 				var week = ( int ) fixture[ "event" ];
 				var homeTeam = TeamsMap( (int)fixture[ "team_h" ] );
 				var awayTeam = TeamsMap( (int) fixture[ "team_a" ] );
 				var homeScored = ( int ) fixture[ "team_h_score" ];
 				var awayScored = ( int ) fixture[ "team_a_score" ];
 
-				ret.AddFixture( new Fixture( week, homeTeam, awayTeam, homeScored, awayScored ) );
+				ret.AddFixture( new Fixture( id, week, homeTeam, awayTeam, homeScored, awayScored ) );
+			}
+
+			return ret;
+		}
+
+		public static async Task<FixtureCollection> GetFixtureWeek( int gameweek )
+		{
+			var request = getFixtureData_;
+			var response = await client.GetAsync( request );
+			var dataObjects = await response.Content.ReadAsStringAsync();
+			var fixtures = JArray.Parse( dataObjects );
+
+			var ret = new FixtureCollection();
+
+			foreach ( var fixture in fixtures )
+			{
+				var events = fixture ["event"];
+				if ( events.Type == JTokenType.Null ) continue;
+				var id = ( int ) fixture[ "id" ];
+				var week = ( int ) fixture[ "event" ];
+				if ( week != gameweek ) continue;
+				var homeTeam = TeamsMap( ( int ) fixture[ "team_h" ] );
+				var awayTeam = TeamsMap( ( int ) fixture[ "team_a" ] );
+				var homeScored = ( int ) fixture[ "team_h_score" ];
+				var awayScored = ( int ) fixture[ "team_a_score" ];
+
+				ret.AddFixture( new Fixture( id, week, homeTeam, awayTeam, homeScored, awayScored ) );
 			}
 
 			return ret;
@@ -180,7 +196,14 @@ namespace FPL_Project.FantasyApi
 				var playerDetails = players.GetPlayer( players.GetPlayerNameById( playerId )! );
 
 				var play = player[ "stats" ]!.ToObject<GameweekData>();
-				play.SetExtraInfo( playerId, playerDetails.Name, playerDetails.Team, gameweek );
+
+				var fixtures = player[ "explain" ];
+				var ids = new List<int>();
+				foreach(var fixture in fixtures)
+				{
+					ids.Add( ( int ) fixture[ "fixture" ] );
+				}
+				play.SetExtraInfo( playerId, playerDetails.Name, playerDetails.Team, gameweek, ids );
 				gameweekData.AddPlayer( play! );
 			}
 

@@ -10,6 +10,7 @@ namespace FPL_Project.Data
 { 
 	public class Fixture : Info
 	{
+		public int Id;
 		public int Gameweek;
 		public Teams Home;
 		public Teams Away;
@@ -21,8 +22,9 @@ namespace FPL_Project.Data
 
 		}
 
-		public Fixture(int week, Teams home, Teams away, int homeGoals, int awayGoals )
+		public Fixture(int id, int week, Teams home, Teams away, int homeGoals, int awayGoals )
 		{
+			Id = id;
 			Gameweek = week;
 			Home = home;
 			Away = away;
@@ -34,19 +36,19 @@ namespace FPL_Project.Data
 		{
 			var vals = line.Split( ',' );
 
-
-			Gameweek = int.Parse( vals[ 0 ] );
-			Home = TeamReader.ReadTeam( vals[ 1 ] );
-			Away = TeamReader.ReadTeam( vals[ 2 ] );
-			HomeGoals = int.Parse( vals[ 3 ] );
-			AwayGoals = int.Parse( vals[ 4 ] );
+			Id = int.Parse( vals[ 0 ] );
+			Gameweek = int.Parse( vals[ 1 ] );
+			Home = TeamReader.ReadTeam( vals[ 2 ] );
+			Away = TeamReader.ReadTeam( vals[ 3 ] );
+			HomeGoals = int.Parse( vals[ 4 ] );
+			AwayGoals = int.Parse( vals[ 5 ] );
 		}
 
 		public override string Stringify()
 		{
 			var str = new StringBuilder();
 
-			str.AppendJoin( ',', new string[] { Gameweek.ToString(), Home.ToString(), Away.ToString(), HomeGoals.ToString(), AwayGoals.ToString() } );
+			str.AppendJoin( ',', new string[] { Id.ToString(), Gameweek.ToString(), Home.ToString(), Away.ToString(), HomeGoals.ToString(), AwayGoals.ToString() } );
 
 			return str.ToString();
 		}

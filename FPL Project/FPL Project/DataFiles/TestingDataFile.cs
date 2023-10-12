@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace FPL_Project.DataFiles
 {
 	public class TestingDataFile : DataFile
 	{
-		public TestingDataFile() : base( "Data/testingdata.csv" )
+		public TestingDataFile() : base( "Data/TestingData.csv" )
 		{
 		}
 

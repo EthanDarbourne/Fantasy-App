@@ -16,6 +16,7 @@ namespace FPL_Project.Players
 		private int Id_;
 		private Teams Team_;
 		private int Week_;
+		private List<int> FixtureIds_;
 		private int Points_;
 		private int MinutesPlayed_;
 		private int Goals_;
@@ -33,6 +34,7 @@ namespace FPL_Project.Players
 		public int Id => Id_;
 		public Teams Team => Team_;
 		public int Week => Week_;
+		public List<int> FixtureIds => FixtureIds_;
 		public int Points => Points_;
 		public int MinutesPlayed => MinutesPlayed_;
 		public int Goals => Goals_;
@@ -76,12 +78,13 @@ namespace FPL_Project.Players
 
 
 		// gameweek data json doesn't contain name or id
-		public void SetExtraInfo(int id, string name, Teams team, int week)
+		public void SetExtraInfo(int id, string name, Teams team, int week, List<int> fixtureIds)
 		{
 			Id_ = id;
 			Name_ = name;
 			Team_ = team;
 			Week_ = week;
+			FixtureIds_ = fixtureIds;
 		}
 
 		// public static GameweekData LoadPlayer(string line)
@@ -90,22 +93,23 @@ namespace FPL_Project.Players
 
 			var vals = line.Split( ',' );
 
-			Debug.Assert(vals.Length == 14);
+			Debug.Assert(vals.Length == 15);
 
 			Name_ = vals[ 0 ];
 			Week_ = int.Parse( vals[ 1 ] );
-			Points_ = int.Parse( vals[ 2 ] );
-			MinutesPlayed_ = int.Parse( vals[ 3 ] );
-			Goals_ = int.Parse( vals[ 4 ] );
-			Assists_ = int.Parse( vals[ 5 ] );
-			xGoals_ = double.Parse( vals[ 6 ] );
-			xAssists_ = double.Parse( vals[ 7 ] );
-			CleanSheets_ = int.Parse( vals[ 8 ] );
-			GoalsConceded_ = int.Parse( vals[ 9 ] );
-			xGoalsConceded_ = double.Parse( vals[ 10 ] );
-			Saves_ = int.Parse( vals[ 11 ] );
-			BonusPoints_ = int.Parse( vals[ 12 ] );
-			BonusPointsRating_ = int.Parse( vals[ 13 ] );
+			FixtureIds_ = vals[ 2 ].Split( ';', StringSplitOptions.RemoveEmptyEntries ).Select( x => int.Parse( x ) ).ToList();
+			Points_ = int.Parse( vals[ 3 ] );
+			MinutesPlayed_ = int.Parse( vals[ 4 ] );
+			Goals_ = int.Parse( vals[ 5 ] );
+			Assists_ = int.Parse( vals[ 6 ] );
+			xGoals_ = double.Parse( vals[ 7 ] );
+			xAssists_ = double.Parse( vals[ 8 ] );
+			CleanSheets_ = int.Parse( vals[ 9 ] );
+			GoalsConceded_ = int.Parse( vals[ 10 ] );
+			xGoalsConceded_ = double.Parse( vals[ 11 ] );
+			Saves_ = int.Parse( vals[ 12 ] );
+			BonusPoints_ = int.Parse( vals[ 13 ] );
+			BonusPointsRating_ = int.Parse( vals[ 14 ] );
 
 		}
 
@@ -113,9 +117,11 @@ namespace FPL_Project.Players
 		{
 			var str = new StringBuilder();
 
-			str.Append( Name + ',' );
 
-			str.AppendJoin( ',', new double[]{ Week, Points, MinutesPlayed, Goals, Assists, xGoals, xAssists,
+			var s = string.Join( ";", FixtureIds.Select( x => x.ToString() ));
+			str.Append( $"{Name},{Week},{s}," );
+
+			str.AppendJoin( ',', new double[]{ Points, MinutesPlayed, Goals, Assists, xGoals, xAssists,
 				CleanSheets, GoalsConceded, xGoalsConceded, Saves, BonusPoints, BonusPointsRating } );
 
 			return str.ToString();

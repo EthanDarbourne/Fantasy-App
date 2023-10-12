@@ -4,9 +4,10 @@ using FPL_Project.Data;
 using FPL_Project.Players;
 using FPL_Project.DataFiles;
 using System.Text;
-using FPL_Project.FantasyApi;
+using FPL_Project.Api;
 using System.ComponentModel.DataAnnotations;
 using System;
+using FPL_Project.Generator;
 
 var ConfigData = new ConfigDataFile();
 
@@ -26,11 +27,9 @@ var TotalWeeks = int.Parse( ConfigCollection.GetValue( "Gameweek" ) );
 
 for (int week = 1; week <= TotalWeeks; ++week)
 {
-    GameweekData.Add( new GameweekDataFile( week ) );
+	GameweekData.Add( new GameweekDataFile( week ) );
 	GameweeksCollection.Add( GameweekData[ week - 1 ].ReadDataFile() as GameweekDataCollection );
-
 } 
-
 
 void VerifyData()
 {
@@ -314,13 +313,17 @@ void WriteToAllFiles()
 }
 
 
-async Task ReloadAllData()
+async Task LoadAllData(bool reload = false)
 {
     TotalWeeks = await FantasyApi.GetWeeksPlayed();
 
-	PlayerCollection = await FantasyApi.LoadNewPlayerDetails( PlayerCollection );
 
-    for(int week = 1; week <= TotalWeeks; ++week)
+	if(reload)PlayerCollection = await FantasyApi.LoadNewPlayerDetails( PlayerCollection );
+
+
+    GameweeksCollection = new();
+
+	for (int week = 1; week <= TotalWeeks; ++week)
     {
 		var gameweekData = await FantasyApi.GetFullGameweekData( week, PlayerCollection );
 		foreach ( PlayerDetails player in PlayerCollection )
@@ -329,15 +332,15 @@ async Task ReloadAllData()
 			if ( data is null )
 			{
 				var gwData = new GameweekData();
-				gwData.SetExtraInfo( player.Id, player.Name, player.Team, gameweekData.Week );
+				gwData.SetExtraInfo( player.Id, player.Name, player.Team, gameweekData.Week, new() );
 				gameweekData.AddPlayer( gwData );
 				Console.WriteLine( $"Added missing Gameweek data for {player.Name}, {player.Team}" );
             }
 		}
-		GameweeksCollection[ week - 1 ] = gameweekData;
+		GameweeksCollection.Add(gameweekData);
 	}
 
-    
+	FixturesCollection = await FantasyApi.LoadFixtureDetails();
 }
 
 void LoadSpecialData()
@@ -371,6 +374,24 @@ void LoadSpecialData()
     w.Close();
 }
 
+
+async Task LoadNewData()
+{
+    TotalWeeks = await FantasyApi.GetWeeksPlayed();
+
+    int curWeeks = GameweeksCollection!.Count;
+
+
+	for ( int i = curWeeks + 1; i <= TotalWeeks; ++i)
+    {
+        var data = await FantasyApi.GetFullGameweekData( i, PlayerCollection );
+		GameweekData.Add( new GameweekDataFile( i ) );
+		GameweeksCollection.Add( data );
+	}
+
+    FixturesCollection = await FantasyApi.LoadFixtureDetails();
+}
+
 bool quit = false;
 
 try
@@ -384,6 +405,12 @@ try
 
         switch ( instr.ToLower() )
         {
+            case "incrementweeks":
+                ++TotalWeeks;
+                break;
+            case "printweeks":
+                Console.WriteLine( $"Total Weeks: {TotalWeeks}" );
+                break;
             case "v":
                 LoadSpecialData();
                 break;
@@ -414,16 +441,20 @@ try
             case "deleteplayer":
                 DeletePlayer();
                 break;
-            case "reloadalldata":
+            case "loadalldata":
+				await LoadAllData();
+				break;
+			case "reloadalldata":
             case "u":
-				await ReloadAllData();
+				await LoadAllData(true);
 				break;
             case "lookupplayer":
                 LookupPlayer();
                 break;
-            case "generatedata":
-                
-            case "quit":
+            case "generatetrainingdata":
+                Generator.GenerateTrainingData( TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
+                break;
+			case "quit":
             case "q":
                 WriteToAllFiles();
                 quit = true;
@@ -448,9 +479,11 @@ try
 catch(Exception e)
 {
     Console.WriteLine( e.ToString() );
-    WriteToAllFiles();
+    Console.WriteLine( "Should we write to files? (Y/N):" );
+    var key = Console.ReadKey();
+    if(key.KeyChar == 'y') WriteToAllFiles();
     return;
 }
 
 
-// need to save all player names we want to a different file that never gets changed so we know what players to grab from fantasy api
+// need to save all player names we want to a different file that never gets change d so we know what players to grab from fantasy api

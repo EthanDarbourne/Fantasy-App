@@ -9,43 +9,53 @@ namespace FPL_Project.Data
 {
 	public class TrainingData : Info
 	{
+		public int Id;
 		public string Name;
 		public Teams Team;
 		public Positions Position;
-		public double Price;
-		public int Points;
-		public int MinutesPlayed;
-		public int Goals;
-		public int Assists;
-		public double xGoals;
-		public double xAssists;
-		public int CleanSheets;
-		public int GoalsConceded;
-		public double xGoalsConceded;
-		public int Saves;
-		public int BonusPoints;
-		public int BonusPointsRating;
-		public int PointsInLastFive;
-		public int MinutesInLastFive;
-		public int GoalsInLastFive;
-		public int AssistsInLastFive;
-		public double xGoalsInLastFive;
-		public double xAssistsInLastFive;
-		public int CleanSheetsInLastFive;
-		public int GoalsConcededInLastFive;
-		public double xGoalsConcededInLastFive;
-		public int SavesInLastFive;
-		public int BonusPointsInLastFive;
-		public int BonusPointsRatingInLastFive;
-		public int ActualPoints;
+		public double Price = 0;
+		public int Points = 0;
+		public int MinutesPlayed = 0;
+		public int Goals = 0;
+		public int Assists = 0;
+		public double xGoals = 0;
+		public double xAssists = 0;
+		public int CleanSheets = 0;
+		public int GoalsConceded = 0;
+		public double xGoalsConceded = 0;
+		public int Saves = 0;
+		public int BonusPoints = 0;
+		public int BonusPointsRating = 0;
+		public int PointsInLastFive = 0;
+		public int MinutesInLastFive = 0;
+		public int GoalsInLastFive = 0;
+		public int AssistsInLastFive = 0;
+		public double xGoalsInLastFive = 0;
+		public double xAssistsInLastFive = 0;
+		public int CleanSheetsInLastFive = 0;
+		public int GoalsConcededInLastFive = 0;
+		public double xGoalsConcededInLastFive = 0;
+		public int SavesInLastFive = 0;
+		public int BonusPointsInLastFive = 0;
+		public int BonusPointsRatingInLastFive = 0;
+		public Teams Opponent;
+		public int OppenentGoalsScored = 0;
+		public int OpponentGoalsConceded = 0;
+		public int OpponentGoalsScoredInLastFive = 0;
+		public int OpponentGoalsConcededInLastFive = 0;
+		public int ActualPoints = 0;
 
-		public TrainingData()
+		public TrainingData(PlayerDetails player)
 		{
-
+			LoadPlayerDetails(player);
 		}
 
 		public TrainingData(TrainingData data)
 		{
+			Id = data.Id;
+			Name = data.Name;
+			Team = data.Team;
+			Position = data.Position;
 			Points = data.Points;
 			MinutesPlayed = data.MinutesPlayed;
 			Goals = data.Goals;
@@ -70,6 +80,12 @@ namespace FPL_Project.Data
 			SavesInLastFive = data.Saves;
 			BonusPointsInLastFive = data.BonusPoints;
 			BonusPointsRatingInLastFive = data.BonusPointsRating;
+			ActualPoints = data.ActualPoints;
+			Opponent = data.Opponent;
+			OppenentGoalsScored = data.OppenentGoalsScored;
+			OpponentGoalsConceded = data.OpponentGoalsConceded;
+			OpponentGoalsScoredInLastFive = data.OpponentGoalsScoredInLastFive;
+			OpponentGoalsConcededInLastFive = data.OpponentGoalsConcededInLastFive;
 		}
 
 		public override void LoadFromLine( string line )
@@ -81,25 +97,38 @@ namespace FPL_Project.Data
 		{
 			var str = new StringBuilder();
 
-			str.Append( $"{Name},{Team},{Position}," );
+			str.Append( $"{Id},{Name},{Team},{Position}," );
 			str.AppendJoin( ',', new double[] {Price, Points, MinutesPlayed, Goals, Assists, xGoals, xAssists, 
 				CleanSheets, GoalsConceded, xGoalsConceded,Saves, BonusPoints, BonusPointsRating,
 			PointsInLastFive, MinutesInLastFive,AssistsInLastFive,xGoalsInLastFive,xAssistsInLastFive,
 				CleanSheetsInLastFive,GoalsConcededInLastFive,xGoalsConcededInLastFive,SavesInLastFive,
 				BonusPointsInLastFive,BonusPointsRatingInLastFive} );
 
+			str.Append( $",{Opponent}," );
+			str.AppendJoin( ',', new double[] { OppenentGoalsScored, OpponentGoalsConceded, OpponentGoalsScoredInLastFive, OpponentGoalsConcededInLastFive, ActualPoints } );
+
 			return str.ToString();
+		}
+
+		public void SetOpponentData(TeamsHistory history)
+		{
+			Opponent = history.Team;
+			OppenentGoalsScored = history.GoalsScored;
+			OpponentGoalsConceded = history.GoalsConceded;
+			OpponentGoalsScoredInLastFive = history.GoalsScoredInLastFive;
+			OpponentGoalsConcededInLastFive = history.GoalsConcededInLastFive;
 		}
 
 		public void LoadPlayerDetails(PlayerDetails playerDetails)
 		{
+			Id = playerDetails.Id;
 			Name = playerDetails.Name;
 			Team = playerDetails.Team;
 			Position = playerDetails.Position;
 			Price = playerDetails.Price;
 		}
 
-		public void AddGameweekFromLastFive(GameweekData gameweek)
+		public void AddGameweekToLastFive(GameweekData gameweek)
 		{
 			PointsInLastFive += gameweek.Points;
 			MinutesInLastFive += gameweek.MinutesPlayed;

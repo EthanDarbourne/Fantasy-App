@@ -23,7 +23,7 @@ namespace FPL_Project.DataFiles
 			}
 		}
 
-		public override string Header => "Name,Week,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointsRating";
+		public override string Header => "Name,Week,FixtureIds,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointsRating";
 
 		public override Collection ReadDataFile()
 		{
