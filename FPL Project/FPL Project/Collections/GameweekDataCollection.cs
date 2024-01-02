@@ -78,6 +78,10 @@ namespace FPL_Project.Collections
 			return val;
 		}
 
+		public List<GameweekData> GetTeamData(Teams team)
+		{
+			return PlayersByTeam_[ (int)team ];
+		}
 
 	}
 }

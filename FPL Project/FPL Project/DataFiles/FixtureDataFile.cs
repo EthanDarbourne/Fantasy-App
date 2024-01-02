@@ -16,7 +16,7 @@ namespace FPL_Project.DataFiles
 		{
 		}
 
-		public override string Header => "Id,Gameweek,Home,Away,HomeScored,AwayScored";
+		public override string Header => "Id,Gameweek,Home,Away,HomeGoals,AwayGoals,xHomeGoals,xAwayGoals";
 
 		public override Collection ReadDataFile()
 		{

@@ -3,15 +3,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public abstract class Collection : IEnumerable
+	public abstract class Collection : IEnumerable // IQueryable
 	{
 		protected List<Info> Info_ = new();
+
+		//public abstract Type ElementType { get; }
+
+		//public Expression Expression => throw new NotImplementedException();
+
+		//public IQueryProvider Provider => throw new NotImplementedException();
 
 		public IEnumerator GetEnumerator()
 		{

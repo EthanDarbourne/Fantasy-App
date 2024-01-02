@@ -340,7 +340,37 @@ async Task LoadAllData(bool reload = false)
 		GameweeksCollection.Add(gameweekData);
 	}
 
+    while( GameweekData.Count < GameweeksCollection.Count)
+    {
+        GameweekData.Add( new GameweekDataFile( GameweekData.Count + 1 ) );
+    }
+
 	FixturesCollection = await FantasyApi.LoadFixtureDetails();
+
+    double Get90MinutesConceded(List<GameweekData> teamData)
+    {
+		foreach ( var data in teamData )
+		{
+			if ( data.MinutesPlayed == 90 )
+			{
+				return data.xGoalsConceded;
+			}
+		}
+        return 0; // will never get here
+	}
+    
+    foreach(Fixture fixture in FixturesCollection)
+    {
+        if ( fixture.Gameweek > TotalWeeks ) continue;
+        var gameweekData = GameweeksCollection[ fixture.Gameweek - 1 ];
+        var homeTeamData = gameweekData.GetTeamData( fixture.Home );
+        var awayTeamData = gameweekData.GetTeamData( fixture.Away );
+        double xGoalsScored = Get90MinutesConceded( awayTeamData );
+        double xGoalsConceded = Get90MinutesConceded( homeTeamData );
+        
+        fixture.SetExpectedData(fixture.Home, xGoalsScored, xGoalsConceded);
+
+	}
 }
 
 void LoadSpecialData()

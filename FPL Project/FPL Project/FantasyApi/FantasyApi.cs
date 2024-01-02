@@ -32,7 +32,8 @@ namespace FPL_Project.Api
 		private static char[,] characterMap = new char[,]{{ 'Ø', 'O' }, { 'ß', 'b' }, { 'ć', 'c' }, { 'á', 'a' }, { 'í', 'i' }, { 'ğ', 'g' }, { 'ú', 'u' }, { 'ž', 'z' }, { 'ł', 'l' }, { 'ö', 'o' },
 				{ 'ü', 'u' }, { 'ø', 'o' }, { 'ä', 'a' }, { 'š', 's' }, { 'ó', 'o' }, { 'é', 'e' }, { 'Á', 'A' }, { 'ï', 'i' }, { 'ñ', 'n' }, { 'ã', 'a' }, { 'ş', 's' }, { 'Š', 'S' }};
 
-		private static List<string> teamsMap = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Liverpool", "Luton",															"ManCity", "ManUtd", "Newcastle", "NottmForest", "SheffieldUtd", "Spurs", "WestHam", "Wolves", };
+		private static List<string> teamsMap = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Liverpool", "Luton",
+															"ManCity", "ManUtd", "Newcastle", "NottmForest", "SheffieldUtd", "Spurs", "WestHam", "Wolves", };
 		private static string PlayerMap( string player, Teams team )
 		{
 			playerMap.TryGetValue( Tuple.Create( player, team ), out var val );

@@ -54,26 +54,24 @@ namespace FPL_Project.Generator
 				{
 					var fixturesInWeek = fixtures.GetFixtures( week, team.Team );
 					fixturesInWeek.ForEach( team.AddFixture );
-					var playerWith90Mins = FullPlayers.
 				}
 
 				foreach ( FullPlayer fullPlayer in FullPlayers)
 				{
-					fullPlayer.GameweekData.Add( gameweekDataCollection[ week ].GetGameweekData( fullPlayer.PlayerDetails.Name ) );
+					fullPlayer.GameweekData.Add( gameweekDataCollection[ week - 1 ].GetGameweekData( fullPlayer.PlayerDetails.Name ) );
 
 					var gameweekData = fullPlayer.GameweekData;
 					var trainingData = fullPlayer.TrainingData;
 
-					trainingData.AddGameweekToStats( gameweekData[ week ] );
-					trainingData.AddGameweekToLastFive( gameweekData[ week ] );
-					trainingData.ActualPoints = gameweekData[ week ].Points;
+					trainingData.AddGameweekToStats( gameweekData[ week - 1 ] );
+					trainingData.AddGameweekToLastFive( gameweekData[ week - 1 ] );
+					trainingData.ActualPoints = gameweekData[ week - 1 ].Points;
 					if ( week > 5 )
 					{
-						trainingData.RemoveGameweekFromLastFive( gameweekData[ week - 5 ] ); // remove oldest gameweek
+						trainingData.RemoveGameweekFromLastFive( gameweekData[ week - 1 - 5 ] ); // remove oldest gameweek
 					}
 					if ( week > 4 )
 					{
-
 						Teams opponent;
 						if(week == weeks) // use next fixture data
 						{
@@ -98,6 +96,12 @@ namespace FPL_Project.Generator
 
 			TrainingData_.WriteToFile( trainingDataCollection );
 
+		}
+
+		public static void GenerateTrainingDataForPlayer( string player, int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
+		{
+			//IQueryable query = playerData.Where();
+			//query.
 		}
 
 		// generate the data to predict on 

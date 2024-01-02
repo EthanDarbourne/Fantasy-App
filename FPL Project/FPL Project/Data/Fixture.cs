@@ -16,6 +16,8 @@ namespace FPL_Project.Data
 		public Teams Away;
 		public int HomeGoals;
 		public int AwayGoals;
+		public double xHomeGoals;
+		public double xAwayGoals;
 
 		public Fixture()
 		{
@@ -32,6 +34,22 @@ namespace FPL_Project.Data
 			AwayGoals = awayGoals;
 		}
 
+		public void SetExpectedData(Teams team, double xGoalsScored, double xGoalsConceded )
+		{
+			if(team == Away)
+			{
+				double tmp = xGoalsScored;
+				xGoalsScored = xGoalsConceded;
+				xGoalsConceded = tmp;
+			}
+			if(team != Home)
+			{
+				throw new Exception( "Team is not playing in this fixture" );
+			}
+			xHomeGoals = xGoalsScored;
+			xAwayGoals = xGoalsConceded;
+		}
+
 		public override void LoadFromLine( string line )
 		{
 			var vals = line.Split( ',' );
@@ -42,13 +60,15 @@ namespace FPL_Project.Data
 			Away = TeamReader.ReadTeam( vals[ 3 ] );
 			HomeGoals = int.Parse( vals[ 4 ] );
 			AwayGoals = int.Parse( vals[ 5 ] );
+			xHomeGoals = double.Parse( vals[ 6 ] );
+			xAwayGoals = double.Parse( vals[ 7 ] );
 		}
 
 		public override string Stringify()
 		{
 			var str = new StringBuilder();
 
-			str.AppendJoin( ',', new string[] { Id.ToString(), Gameweek.ToString(), Home.ToString(), Away.ToString(), HomeGoals.ToString(), AwayGoals.ToString() } );
+			str.AppendJoin( ',', new string[] { Id.ToString(), Gameweek.ToString(), Home.ToString(), Away.ToString(), HomeGoals.ToString(), AwayGoals.ToString(), xHomeGoals.ToString(), xAwayGoals.ToString() } );
 
 			return str.ToString();
 		}
