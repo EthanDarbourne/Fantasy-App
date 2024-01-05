@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-	public class FixtureDataFile : DataFile
+	public class FixtureDataFile : DataFile<FixtureCollection>
 	{
 
 		public FixtureDataFile() : base( "Data/Fixtures.csv" )
@@ -18,14 +18,14 @@ namespace FPL_Project.DataFiles
 
 		public override string Header => "Id,Gameweek,Home,Away,HomeGoals,AwayGoals,xHomeGoals,xAwayGoals";
 
-		public override Collection ReadDataFile()
+		public override FixtureCollection ReadDataFile()
 		{
-			var fixtures = new FixtureCollection();
+			FixtureCollection fixtures = new();
 			if ( !File.Exists( fileName ) ) return fixtures;
 
-			using StreamReader r = new StreamReader( fileName );
-			string line = r.ReadLine(); // header
-			while ( ( line = r.ReadLine() ) != null )
+			using StreamReader r = new( fileName );
+			string? line = r.ReadLine(); // header
+			while ( ( line = r.ReadLine() ) is not null )
 			{
 				var fixture = new Fixture();
 				fixture.LoadFromLine( line );
@@ -35,9 +35,9 @@ namespace FPL_Project.DataFiles
 			return fixtures;
 		}
 
-		public override void WriteToFile( Collection collection )
+		public override void WriteToFile( FixtureCollection collection )
 		{
-			using StreamWriter w = new StreamWriter( fileName );
+			using StreamWriter w = new( fileName );
 
 			w.WriteLine( Header );
 			foreach ( Fixture fixture in collection )

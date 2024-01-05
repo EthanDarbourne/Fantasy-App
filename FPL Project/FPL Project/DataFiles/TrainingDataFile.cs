@@ -9,23 +9,31 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-	public class TrainingDataFile : DataFile
+	public class TrainingDataFile : DataFile<TrainingDataCollection>
 	{
-		public TrainingDataFile() : base( "Data/TrainingData.csv" )
+		public TrainingDataFile() : base( "Data/TrainingData{0}.csv" )
 		{
 		}
 
 		public override string Header => "Id,Name,Team,Position,Price,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointRating,PointsInLastFive,MinutesInLastFive,GoalsInLastFive,xGoalsInLastFive,xAssistsInLastFive,CleanSheetsInLastFive,GoalsConcededInLastFive,xGoalsConcededInLastFive,SavesInLastFive,BonusPointsInLastFive,BonusPointsRatingInLastFive,Opponent,OpponentGoalsScored,OpponentGoalsConceded,OpponentGoalsScoredInLastFive,OpponentGoalsConcededInLastFive,ActualPoints";
 
-		public override Collection ReadDataFile()
+		public override TrainingDataCollection ReadDataFile()
 		{
 			throw new NotImplementedException();
 		}
 
-		public override void WriteToFile( Collection collection )
+		public void WriteToFile( TrainingDataCollection collection, string append )
 		{
+			string original = fileName;
+			fileName = string.Format( fileName, append );
+			WriteToFile( collection );
+			fileName = original;
+		}
 
-			using StreamWriter w = new StreamWriter( fileName );
+		public override void WriteToFile( TrainingDataCollection collection )
+		{
+			string fullFileName = string.Format( fileName );
+			using StreamWriter w = new( fullFileName );
 			w.WriteLine( Header );
 
 			foreach ( TrainingData data in collection )

@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-    public abstract class DataFile
+    public abstract class DataFile<T> 
 	{
 
 		protected string fileName;
@@ -20,9 +21,9 @@ namespace FPL_Project.DataFiles
 
 		public abstract string Header { get; }
 
-		public abstract Collection ReadDataFile();
+		public abstract T ReadDataFile();
 
-		public abstract void WriteToFile( Collection collection );
+		public abstract void WriteToFile( T collection );
 
 		//public Collection ReadFile()
 		//{

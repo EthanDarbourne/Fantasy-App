@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-    public class GameweekDataFile : DataFile
+	public class GameweekDataFile : DataFile<GameweekDataCollection>
 	{
 
 		private int Gameweek_;
 
-		public GameweekDataFile( int gameweek, bool create = false) : base( $"Data/Gameweek{gameweek}.csv" )
+		public GameweekDataFile( int gameweek, bool create = false ) : base( $"Data/Gameweek{gameweek}.csv" )
 		{
 			Gameweek_ = gameweek;
-			if(create && File.Exists(fileName))
+			if ( create && File.Exists( fileName ) )
 			{
 				throw new Exception( "File already made for this week" );
 			}
@@ -25,16 +25,15 @@ namespace FPL_Project.DataFiles
 
 		public override string Header => "Name,Week,FixtureIds,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointsRating";
 
-		public override Collection ReadDataFile()
+		public override GameweekDataCollection ReadDataFile()
 		{
-
-			var data = new GameweekDataCollection( Gameweek_ );
+			GameweekDataCollection data = new( Gameweek_ );
 			if ( !File.Exists( fileName ) ) return data;
 
-			using StreamReader r = new StreamReader( fileName ) ;
-			
-			string line = r.ReadLine(); // header
-			while ( ( line = r.ReadLine() ) != null )
+			using StreamReader r = new( fileName );
+
+			string? line = r.ReadLine(); // header
+			while ( ( line = r.ReadLine() ) is not null )
 			{
 				var gameweekData = new GameweekData();
 				gameweekData.LoadFromLine( line );
@@ -44,13 +43,13 @@ namespace FPL_Project.DataFiles
 			return data;
 		}
 
-		public override void WriteToFile(Collection gameweekData)
+		public override void WriteToFile( GameweekDataCollection gameweekData )
 		{
 
-			using StreamWriter w = new StreamWriter( fileName );
+			using StreamWriter w = new( fileName );
 			w.WriteLine( Header );
 
-			foreach (GameweekData player in gameweekData )
+			foreach ( GameweekData player in gameweekData )
 			{
 				w.WriteLine( player.Stringify() );
 			}

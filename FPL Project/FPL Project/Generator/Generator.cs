@@ -23,40 +23,30 @@ namespace FPL_Project.Generator
 			TestingData_ = new TestingDataFile();
 		}
 
-		// generate the data to train on
-		public static async void GenerateTrainingData( int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
+		private static async Task<TrainingDataCollection?> GenerateTrainingDataHidden(int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
 		{
-			if ( weeks < 5 ) return; // need 5 weeks of data
+			if ( weeks < 5 ) return null; // need 5 weeks of data
 
 			// make full players
-			var trainingDataCollection = new TrainingDataCollection();
+			TrainingDataCollection trainingDataCollection = new();
 
 			// iterate through full players and create data for all groups of 6 weeks
-			var FullPlayers = new FullPlayerCollection();
+			FullPlayerCollection FullPlayers = new(playerData.Select( player => new FullPlayer( player, new())));
 
-			foreach ( PlayerDetails player in playerData )
-			{
-				FullPlayers.AddPlayer( new FullPlayer( player, new() ) );
-			}
+			FixtureCollection nextWeekFixtures = await FantasyApi.GetFixtureWeek( weeks );
 
-			var nextWeekFixtures = await FantasyApi.GetFixtureWeek(weeks);
+			List<Teams> teams = Enum.GetValues( typeof( Teams ) ).Cast<Teams>().ToList();
+			List<TeamsHistory> teamHistorys = teams.Select(team => new TeamsHistory(team)).ToList();
 
-			var teamHistorys = new List<TeamsHistory>();
-			var teams = Enum.GetValues( typeof( Teams ) ).Cast<Teams>().ToList();
-			foreach (var team in teams )
-			{
-				teamHistorys.Add( new TeamsHistory( team ) );
-			}
-
-			for (int week = 1; week <= weeks; ++week)
+			for ( int week = 1; week <= weeks; ++week )
 			{
 				foreach ( var team in teamHistorys )
 				{
-					var fixturesInWeek = fixtures.GetFixtures( week, team.Team );
+					List<Fixture> fixturesInWeek = fixtures.GetFixtures( week, team.Team );
 					fixturesInWeek.ForEach( team.AddFixture );
 				}
 
-				foreach ( FullPlayer fullPlayer in FullPlayers)
+				foreach ( FullPlayer fullPlayer in FullPlayers )
 				{
 					fullPlayer.GameweekData.Add( gameweekDataCollection[ week - 1 ].GetGameweekData( fullPlayer.PlayerDetails.Name ) );
 
@@ -73,7 +63,7 @@ namespace FPL_Project.Generator
 					if ( week > 4 )
 					{
 						Teams opponent;
-						if(week == weeks) // use next fixture data
+						if ( week == weeks ) // use next fixture data
 						{
 							opponent = nextWeekFixtures.GetOpponent( week, trainingData.Team );
 						}
@@ -91,17 +81,29 @@ namespace FPL_Project.Generator
 					}
 				}
 			}
-			
-			
+			return trainingDataCollection;
+		}
 
-			TrainingData_.WriteToFile( trainingDataCollection );
+		// generate the data to train on
+		public static async Task GenerateTrainingData( int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
+		{
+
+			TrainingDataCollection? trainingData = await GenerateTrainingDataHidden( weeks, playerData, gameweekDataCollection, fixtures );
+			if ( trainingData is not null )
+			{
+				TrainingData_.WriteToFile( trainingData, "" );
+			}
 
 		}
 
-		public static void GenerateTrainingDataForPlayer( string player, int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
+		public static async Task GenerateTrainingDataForPlayer( string name, int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
 		{
-			//IQueryable query = playerData.Where();
-			//query.
+			IEnumerable<PlayerDetails> players = playerData.Where(x => (x as PlayerDetails)!.Name == name ).Cast<PlayerDetails>();
+			TrainingDataCollection? trainingData = await GenerateTrainingDataHidden( weeks, new PlayerDetailsCollection(players), gameweekDataCollection, fixtures );
+			if ( trainingData is not null )
+			{
+				TrainingData_.WriteToFile( trainingData, "-" + name );
+			}
 		}
 
 		// generate the data to predict on 
@@ -111,7 +113,7 @@ namespace FPL_Project.Generator
 
 			// iterate through full players and create data for last of 5 weeks 
 
-			var trainingDataCollection = new TrainingDataCollection();
+			var testingDataCollection = new TrainingDataCollection();
 
 			foreach ( PlayerDetails player in playerData )
 			{
@@ -134,14 +136,14 @@ namespace FPL_Project.Generator
 					}
 					if ( i >= 4 )
 					{
-						trainingDataCollection.AddTrainingData( new TrainingData( trainingData ) );
+						testingDataCollection.AddTrainingData( new TrainingData( trainingData ) );
 					}
 
 				}
 
 			}
 
-			TestingData_.WriteToFile( trainingDataCollection );
+			//TestingData_.WriteToFile( trainingDataCollection );
 		}
 	}
 }

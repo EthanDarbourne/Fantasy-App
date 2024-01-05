@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public class FixtureCollection : Collection
+	public class FixtureCollection : Collection<Fixture>
 	{
 		private List<List<Fixture>> Fixtures_ = new();
 
@@ -20,10 +20,9 @@ namespace FPL_Project.Collections
 			}
 		}
 
-
 		public void AddFixture(Fixture fixture)
 		{
-			Info_.Add( fixture );
+			AddItem( fixture );
 			Fixtures_[ fixture.Gameweek ].Add( fixture );
 		}
 

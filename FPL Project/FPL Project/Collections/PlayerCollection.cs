@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-    public class PlayerCollection : Collection
+    public class PlayerCollection : Collection<Player>
     {
 
 
@@ -24,13 +24,11 @@ namespace FPL_Project.Collections
 			}
         }
 
-        
-
         public void AddPlayer(Player player)
         {
             Players_.Add(player.Name, player);
             PlayersByTeam_[ ( int ) player.Team ].Add( player );
-			AddInfo( player );
+			AddItem( player );
 		}
 
         public Player? GetPlayer(string name)

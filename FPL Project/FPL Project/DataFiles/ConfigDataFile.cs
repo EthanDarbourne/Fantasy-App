@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-	public class ConfigDataFile : DataFile
+	public class ConfigDataFile : DataFile<ConfigCollection>
 	{
-
-		
-
-
 		public ConfigDataFile() : base( $"Data/Config.csv" )
 		{
 
@@ -21,15 +17,15 @@ namespace FPL_Project.DataFiles
 
 		public override string Header => "Key,Value";
 
-		public override Collection ReadDataFile()
+		public override ConfigCollection ReadDataFile()
 		{
-			var config = new ConfigCollection();
+			ConfigCollection config = new();
 			if ( !File.Exists( fileName ) ) return config;
 
 			using StreamReader r = new( fileName );
 
-			string line = r.ReadLine(); // header
-			while ( ( line = r.ReadLine() ) != null )
+			string? line = r.ReadLine(); // header
+			while ( ( line = r.ReadLine() ) is not null )
 			{
 				var vals = line.Split( ',' );
 				config.AddPair( vals[0], vals[1] );
@@ -38,9 +34,7 @@ namespace FPL_Project.DataFiles
 			return config;
 		}
 
-		
-
-		public override void WriteToFile(Collection config)
+		public override void WriteToFile( ConfigCollection config )
 		{
 			using StreamWriter w = new ( fileName );
 

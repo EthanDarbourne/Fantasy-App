@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace FPL_Project.Collections
 {
-	public class PlayerDetailsCollection : Collection
+	public class PlayerDetailsCollection : Collection<PlayerDetails>
 	{
 
 		private Dictionary<string, PlayerDetails> Players_ = new();
@@ -22,11 +22,26 @@ namespace FPL_Project.Collections
 		public int Team_ = 0;
 		public int Player_ = 0;
 
-		public PlayerDetailsCollection()
+
+		private void LoadTeams()
 		{
 			for ( int i = 0; i < 20; ++i )
 			{
 				PlayersByTeam_.Add( new() );
+			}
+		}
+
+		public PlayerDetailsCollection()
+		{
+			LoadTeams();
+		}
+
+		public PlayerDetailsCollection(IEnumerable<PlayerDetails> playerDetails)
+		{
+			LoadTeams();
+			foreach(PlayerDetails playerDetail in playerDetails )
+			{
+				AddPlayerDetails( playerDetail );
 			}
 		}
 
@@ -45,7 +60,7 @@ namespace FPL_Project.Collections
 			PlayersById_.Add( player.Id, player.Name);
 			Players_.Add( player.Name, player );
 			PlayersByTeam_[ ( int ) player.Team - 1].Add( player );
-			AddInfo( player );
+			AddItem( player );
 		}
 
 		public bool DeletePlayer( string player )
@@ -54,7 +69,7 @@ namespace FPL_Project.Collections
 			{
 				return false;
 			}
-			DeleteInfo( info => ( info as PlayerDetails )!.Name == player );
+			DeleteItem( info => info.Name == player );
 			var playerDetail = Players_[ player ];
 			PlayersById_.Remove( playerDetail.Id);
 			Players_.Remove( player );

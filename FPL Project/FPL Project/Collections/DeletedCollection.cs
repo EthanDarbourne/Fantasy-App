@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public class DeletedCollection : Collection
+	public class DeletedCollection : Collection<Info>
 	{
 		private List<string> Reasons_ = new();
 
 		public void AddInfo(Info info, string reason)
 		{
 			Reasons_.Add( reason );
-			AddInfo( info );
+			AddItem( info );
 		}
 
 		public string GetReason(int i)

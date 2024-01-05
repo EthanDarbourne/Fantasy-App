@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public class ConfigCollection : Collection
+	public class ConfigCollection : Collection<ConfigPair>
 	{
 
 		private Dictionary<string, ConfigPair> Pairs_ = new();
@@ -28,7 +28,7 @@ namespace FPL_Project.Collections
 			{
 				var config = new ConfigPair( key, value );
 				Pairs_.Add( key, config );
-				AddInfo( config );
+				AddItem( config );
 			}
 		}
 

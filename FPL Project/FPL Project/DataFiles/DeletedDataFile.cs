@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-	public class DeletedDataFile : DataFile
+	public class DeletedDataFile : DataFile<DeletedCollection>
 	{
 		public DeletedDataFile() : base( "Data/DeletedData.csv" )
 		{
@@ -17,19 +17,18 @@ namespace FPL_Project.DataFiles
 
 		public override string Header => "";
 
-		public override Collection ReadDataFile()
+		public override DeletedCollection ReadDataFile()
 		{
 			throw new NotImplementedException(); // why are we reading this
 		}
 
-		public override void WriteToFile( Collection collection )
+		public override void WriteToFile( DeletedCollection collection )
 		{
-			var collect = collection as DeletedCollection;
-			using var w = new StreamWriter( fileName, true );
+			using StreamWriter w = new( fileName, true );
 			int i = 0;
 			foreach(Info info in collection)
 			{
-				w.Write( collect!.GetReason( i ) + ',');
+				w.Write( collection.GetReason( i ) + ',');
 				w.WriteLine( info.Stringify() );
 				++i;
 			}

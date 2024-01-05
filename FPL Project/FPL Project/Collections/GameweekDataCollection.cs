@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public class GameweekDataCollection : Collection
+	public class GameweekDataCollection : Collection<GameweekData>
 	{
 		private Dictionary<string, GameweekData> Players_ = new();
 
@@ -32,7 +32,7 @@ namespace FPL_Project.Collections
 		{
 			Players_.Add( player.Name, player );
 			PlayersByTeam_[ ( int ) player.Team ].Add( player );
-			AddInfo( player );
+			AddItem( player );
 		}
 
 		public void UpdatePlayer( GameweekData player )
@@ -42,7 +42,7 @@ namespace FPL_Project.Collections
 				var old = Players_[ player.Name ];
 				Players_.Remove( player.Name );
 				PlayersByTeam_[ ( int ) player.Team ].Remove( old );
-				Info_.Remove( old );
+				Items_.Remove( old );
 			}
 			AddPlayer( player );
 		}
@@ -53,7 +53,7 @@ namespace FPL_Project.Collections
 			{
 				return false;
 			}
-			DeleteInfo( info => (info as GameweekData)!.Name == player);
+			DeleteItem( item => item.Name == player);
 			Players_.Remove( player );
 			for ( int i = 1; i <= 20; ++i )
 			{

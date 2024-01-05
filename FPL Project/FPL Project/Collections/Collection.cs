@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public abstract class Collection : IEnumerable // IQueryable
+	public abstract class Collection<T> : IEnumerable<T> where T : Info// IQueryable
 	{
-		protected List<Info> Info_ = new();
+		protected readonly List<T> Items_ = new();
 
 		//public abstract Type ElementType { get; }
 
@@ -20,47 +20,63 @@ namespace FPL_Project.Collections
 
 		//public IQueryProvider Provider => throw new NotImplementedException();
 
-		public IEnumerator GetEnumerator()
+		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return new CollectionEnumerator(Info_);
+			//foreach(Info info in Info_)
+			//{
+			//	yield return info;
+			//}
+			return new CollectionEnumerator( Items_ );
 		}
 
-		protected void AddInfo(Info info)
+		public IEnumerator<T> GetEnumerator()
 		{
-			Info_.Add( info );
+			return new CollectionEnumerator( Items_ );
 		}
 
-		protected bool DeleteInfo(Func<Info, bool> filter)
+		protected void AddItem( T info )
 		{
-			for(int i = 0; i < Info_.Count; ++i)
+			Items_.Add( info );
+		}
+
+		protected bool DeleteItem( Func<T, bool> filter )
+		{
+			for ( int i = 0; i < Items_.Count; ++i )
 			{
-				if(filter(Info_[i]))
+				if ( filter( Items_[ i ] ) )
 				{
-					Info_.RemoveAt( i );
+					Items_.RemoveAt( i );
 					return true;
 				}
 			}
 			return false;
 		}
 
-		private class CollectionEnumerator : IEnumerator
+		private class CollectionEnumerator : IEnumerator<T>
 		{
 
-			private List<Info> Info_;
+			private readonly List<T> Item;
 
 			private int Index_ = -1;
 
 
-			public CollectionEnumerator(List<Info> info)
+			public CollectionEnumerator( List<T> item )
 			{
-				Info_ = info;
+				Item = item;
 			}
 
-			public object Current => Info_[ Index_ ];
+			public object Current => this.Current;
+
+			T IEnumerator<T>.Current => Item[ Index_ ];
+
+			public void Dispose()
+			{
+
+			}
 
 			public bool MoveNext()
 			{
-				if ( Index_ >= Info_.Count - 1 ) return false;
+				if ( Index_ >= Item.Count - 1 ) return false;
 				++Index_;
 				return true;
 			}
@@ -71,4 +87,6 @@ namespace FPL_Project.Collections
 			}
 		}
 	}
+
+	
 }

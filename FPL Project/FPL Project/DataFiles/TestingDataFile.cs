@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.DataFiles
 {
-	public class TestingDataFile : DataFile
+	public class TestingDataFile : DataFile<TestingDataCollection>
 	{
 		public TestingDataFile() : base( "Data/TestingData.csv" )
 		{
@@ -16,12 +16,12 @@ namespace FPL_Project.DataFiles
 
 		public override string Header => throw new NotImplementedException();
 
-		public override Collection ReadDataFile()
+		public override TestingDataCollection ReadDataFile()
 		{
 			throw new NotImplementedException();
 		}
 
-		public override void WriteToFile( Collection collection )
+		public override void WriteToFile( TestingDataCollection collection )
 		{
 			throw new NotImplementedException();
 		}

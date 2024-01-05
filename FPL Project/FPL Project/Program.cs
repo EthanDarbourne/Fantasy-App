@@ -482,8 +482,13 @@ try
                 LookupPlayer();
                 break;
             case "generatetrainingdata":
-                Generator.GenerateTrainingData( TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
+                await Generator.GenerateTrainingData( TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
                 break;
+			case "generatetrainingdataforplayer":
+                Console.Write( "Enter a player name: " );
+                string player = Console.ReadLine()!;
+				await Generator.GenerateTrainingDataForPlayer( player, TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
+				break;
 			case "quit":
             case "q":
                 WriteToAllFiles();

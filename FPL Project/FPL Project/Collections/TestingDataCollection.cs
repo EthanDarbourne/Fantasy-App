@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace FPL_Project.Collections
 {
-	public class TrainingDataCollection : Collection<TrainingData>
+	public class TestingDataCollection : Collection<TestingData>
 	{
 
 
-		public void AddTrainingData(TrainingData data )
+		public void AddTestingData( TestingData data )
 		{
 			Items_.Add( data );
 		}
