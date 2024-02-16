@@ -15,7 +15,7 @@ namespace FPL_Project.DataFiles
 		{
 		}
 
-		public override string Header => "Id,Name,Team,Position,Price,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointRating,PointsInLastFive,MinutesInLastFive,GoalsInLastFive,xGoalsInLastFive,xAssistsInLastFive,CleanSheetsInLastFive,GoalsConcededInLastFive,xGoalsConcededInLastFive,SavesInLastFive,BonusPointsInLastFive,BonusPointsRatingInLastFive,Opponent,OpponentGoalsScored,OpponentGoalsConceded,OpponentGoalsScoredInLastFive,OpponentGoalsConcededInLastFive,ActualPoints";
+		public override string Header => "Id,Name,Team,Position,Price,Week,Points,MinutesPlayed,Goals,Assists,xGoals,xAssists,CleanSheets,GoalsConceded,xGoalsConceded,Saves,BonusPoints,BonusPointRating,PointsInLastFive,MinutesInLastFive,GoalsInLastFive,xGoalsInLastFive,xAssistsInLastFive,CleanSheetsInLastFive,GoalsConcededInLastFive,xGoalsConcededInLastFive,SavesInLastFive,BonusPointsInLastFive,BonusPointsRatingInLastFive,Opponent,OpponentGoalsScored,OpponentGoalsConceded,OpponentGoalsScoredInLastFive,OpponentGoalsConcededInLastFive,ActualPoints";
 
 		public override TrainingDataCollection ReadDataFile()
 		{

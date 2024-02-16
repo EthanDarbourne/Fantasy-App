@@ -14,6 +14,7 @@ namespace FPL_Project.Data
 		public Teams Team;
 		public Positions Position;
 		public double Price = 0;
+		public int Week = 0;
 		public int Points = 0;
 		public int MinutesPlayed = 0;
 		public int Goals = 0;
@@ -45,7 +46,10 @@ namespace FPL_Project.Data
 		public int OpponentGoalsConcededInLastFive = 0;
 		public int ActualPoints = 0;
 
+		// Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+#pragma warning disable CS8618
 		public TrainingData(PlayerDetails player)
+#pragma warning restore CS8618
 		{
 			LoadPlayerDetails(player);
 		}
@@ -56,6 +60,8 @@ namespace FPL_Project.Data
 			Name = data.Name;
 			Team = data.Team;
 			Position = data.Position;
+			Price = data.Price;
+			Week = data.Week;
 			Points = data.Points;
 			MinutesPlayed = data.MinutesPlayed;
 			Goals = data.Goals;
@@ -68,18 +74,18 @@ namespace FPL_Project.Data
 			Saves = data.Saves;
 			BonusPoints = data.BonusPoints;
 			BonusPointsRating = data.BonusPointsRating;
-			PointsInLastFive = data.Points;
-			MinutesInLastFive = data.MinutesPlayed;
-			GoalsInLastFive = data.Goals;
-			AssistsInLastFive = data.Assists;
-			xGoalsInLastFive = data.xGoals;
-			xAssistsInLastFive = data.xAssists;
-			CleanSheetsInLastFive = data.CleanSheets;
-			GoalsConcededInLastFive = data.GoalsConceded;
-			xGoalsConcededInLastFive = data.xGoalsConceded;
-			SavesInLastFive = data.Saves;
-			BonusPointsInLastFive = data.BonusPoints;
-			BonusPointsRatingInLastFive = data.BonusPointsRating;
+			PointsInLastFive = data.PointsInLastFive;
+			MinutesInLastFive = data.MinutesInLastFive;
+			GoalsInLastFive = data.GoalsInLastFive;
+			AssistsInLastFive = data.AssistsInLastFive;
+			xGoalsInLastFive = data.xGoalsInLastFive;
+			xAssistsInLastFive = data.xAssistsInLastFive;
+			CleanSheetsInLastFive = data.CleanSheetsInLastFive;
+			GoalsConcededInLastFive = data.GoalsConcededInLastFive;
+			xGoalsConcededInLastFive = data.xGoalsConcededInLastFive;
+			SavesInLastFive = data.SavesInLastFive;
+			BonusPointsInLastFive = data.BonusPointsInLastFive;
+			BonusPointsRatingInLastFive = data.BonusPointsRatingInLastFive;
 			ActualPoints = data.ActualPoints;
 			Opponent = data.Opponent;
 			OppenentGoalsScored = data.OppenentGoalsScored;
@@ -98,7 +104,7 @@ namespace FPL_Project.Data
 			var str = new StringBuilder();
 
 			str.Append( $"{Id},{Name},{Team},{Position}," );
-			str.AppendJoin( ',', new double[] {Price, Points, MinutesPlayed, Goals, Assists, xGoals, xAssists, 
+			str.AppendJoin( ',', new double[] {Price, Week, Points, MinutesPlayed, Goals, Assists, xGoals, xAssists, 
 				CleanSheets, GoalsConceded, xGoalsConceded,Saves, BonusPoints, BonusPointsRating,
 			PointsInLastFive, MinutesInLastFive,AssistsInLastFive,xGoalsInLastFive,xAssistsInLastFive,
 				CleanSheetsInLastFive,GoalsConcededInLastFive,xGoalsConcededInLastFive,SavesInLastFive,
@@ -162,6 +168,7 @@ namespace FPL_Project.Data
 
 		public void AddGameweekToStats(GameweekData gameweek)
 		{
+			Week = gameweek.Week;
 			Points += gameweek.Points;
 			MinutesPlayed += gameweek.MinutesPlayed;
 			Goals += gameweek.Goals;

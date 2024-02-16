@@ -14,13 +14,13 @@ namespace FPL_Project.Generator
 	public static class Generator
 	{
 
-		private static TrainingDataFile TrainingData_;
-		private static TestingDataFile TestingData_;
+		private static readonly TrainingDataFile TrainingData_;
+		private static readonly TestingDataFile TestingData_;
 
 		static Generator()
 		{
-			TrainingData_ = new TrainingDataFile();
-			TestingData_ = new TestingDataFile();
+			TrainingData_ = new();
+			TestingData_ = new();
 		}
 
 		private static async Task<TrainingDataCollection?> GenerateTrainingDataHidden(int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
@@ -96,9 +96,19 @@ namespace FPL_Project.Generator
 
 		}
 
+		public static async Task GenerateTrainingDataForPlayers( List<string> names, int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
+		{
+			IEnumerable<PlayerDetails> players = playerData.Where( x => names.Contains(x.Name));
+			TrainingDataCollection? trainingData = await GenerateTrainingDataHidden( weeks, new PlayerDetailsCollection( players ), gameweekDataCollection, fixtures );
+			if ( trainingData is not null )
+			{
+				TrainingData_.WriteToFile( trainingData, "-" + "BulkCreation" );
+			}
+		}
+
 		public static async Task GenerateTrainingDataForPlayer( string name, int weeks, PlayerDetailsCollection playerData, List<GameweekDataCollection> gameweekDataCollection, FixtureCollection fixtures )
 		{
-			IEnumerable<PlayerDetails> players = playerData.Where(x => (x as PlayerDetails)!.Name == name ).Cast<PlayerDetails>();
+			IEnumerable<PlayerDetails> players = playerData.Where(x => x.Name == name );
 			TrainingDataCollection? trainingData = await GenerateTrainingDataHidden( weeks, new PlayerDetailsCollection(players), gameweekDataCollection, fixtures );
 			if ( trainingData is not null )
 			{
