@@ -10,6 +10,7 @@ namespace FPL_Project.Collections
 {
 	public class FixtureCollection : Collection<Fixture>
 	{
+		// ignore index 0 to make 1-indexed
 		private List<List<Fixture>> Fixtures_ = new();
 
 		public FixtureCollection()
@@ -37,14 +38,15 @@ namespace FPL_Project.Collections
 		}
 
 		// problem: when playing two games
-		public Teams GetOpponent(int gameweek, Teams team)
+		public List<Teams> GetOpponents(int gameweek, Teams team)
 		{
+			List<Teams> ret = new();
 			foreach(var fixture in Fixtures_[gameweek] )
 			{
-				if ( fixture.Home == team ) return fixture.Away;
-				if ( fixture.Away == team ) return fixture.Home;
+				if ( fixture.Home == team ) ret.Add(fixture.Away);
+				if ( fixture.Away == team ) ret.Add(fixture.Home);
 			}
-			return team; // did not play in the gameweek
+			return ret; 
 		}
 
 		public bool IsHome(int gameweek, Teams team)

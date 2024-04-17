@@ -99,8 +99,12 @@ namespace FPL_Project.Api
 				if ( week != gameweek ) continue;
 				var homeTeam = TeamsMap( ( int ) fixture[ "team_h" ] );
 				var awayTeam = TeamsMap( ( int ) fixture[ "team_a" ] );
-				var homeScored = ( int ) fixture[ "team_h_score" ];
-				var awayScored = ( int ) fixture[ "team_a_score" ];
+
+				var tok = fixture[ "team_h_score" ];
+				int homeScored = tok!.Type == JTokenType.Null ? 0 : ( int ) tok;
+				tok = fixture[ "team_a_score" ];
+				int awayScored = tok!.Type == JTokenType.Null ? 0 : ( int ) tok;
+				//int awayScored = (int)(fixture[ "team_a_score" ] ?? 0);
 
 				ret.AddFixture( new Fixture( id, week, homeTeam, awayTeam, homeScored, awayScored ) );
 			}

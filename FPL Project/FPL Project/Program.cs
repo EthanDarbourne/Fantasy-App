@@ -5,10 +5,7 @@ using FPL_Project.Players;
 using FPL_Project.DataFiles;
 using System.Text;
 using FPL_Project.Api;
-using System.ComponentModel.DataAnnotations;
-using System;
 using FPL_Project.Generator;
-using System.Reflection.Metadata.Ecma335;
 
 var ConfigData = new ConfigDataFile();
 
@@ -489,6 +486,19 @@ async Task RunInstruction( string? instruction = null )
 			Console.Write( "Enter a player name: " );
 			string player = Console.ReadLine()!;
 			await Generator.GenerateTrainingDataForPlayer( player, TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
+			break;
+		case "generatedataforweek":
+			Console.Write( "Enter week number: " );
+			int week = int.Parse(Console.ReadLine()!);
+			await Generator.GeneratePredictionDataForWeek( week, TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection );
+			break;
+		case "generatedataabovethreshold":
+			Console.Write( "Enter threshold number: " );
+			int threshold = int.Parse( Console.ReadLine()! );
+			await Generator.GenerateTrainingDataAboveThreshold( TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection, threshold );
+			break;
+		case "reportonteam":
+			// report on the team created by the ML model
 			break;
 		case "repeat":
 			if ( lastInstruction is not null )
