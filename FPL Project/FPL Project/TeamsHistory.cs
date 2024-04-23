@@ -13,18 +13,24 @@ namespace FPL_Project
 
 		public int GoalsScored = 0;
 		public int GoalsConceded = 0;
-		public int GoalsScoredInLastFive = 0;
-		public int GoalsConcededInLastFive = 0;
+		//public int GoalsScoredInLastFive = 0;
+		//public int GoalsConcededInLastFive = 0;
 		public double xGoalsScored = 0;
 		public double xGoalsConceded = 0;
-		public double xGoalsScoredInLastFive = 0;
-		public double xGoalsConcededInLastFive = 0;
+		//public double xGoalsScoredInLastFive = 0;
+		//public double xGoalsConcededInLastFive = 0;
 		public Teams Team;
 
 		private List<int> LastFiveScored = new();
 		private List<int> LastFiveConceded = new();
 		private List<double> LastFivexScored = new();
 		private List<double> LastFivexConceded = new();
+
+
+		public int GoalsScoredInLastFive => LastFiveScored.Sum();
+		public int GoalsConcededInLastFive => LastFiveConceded.Sum();
+		public double xGoalsScoredInLastFive => LastFivexScored.Sum();
+		public double xGoalsConcededInLastFive => LastFivexConceded.Sum();
 
 		public TeamsHistory( Teams team )
 		{
@@ -52,10 +58,10 @@ namespace FPL_Project
 
 			if ( LastFiveScored.Count == 5 )
 			{
-				GoalsScored -= LastFiveScored[ 0 ];
-				GoalsConceded -= LastFiveConceded[ 0 ];
-				xGoalsScored -= LastFivexScored[ 0 ];
-				xGoalsConceded -= LastFivexConceded[ 0 ];
+				//GoalsScored -= LastFiveScored[ 0 ];
+				//GoalsConceded -= LastFiveConceded[ 0 ];
+				//xGoalsScored -= LastFivexScored[ 0 ];
+				//xGoalsConceded -= LastFivexConceded[ 0 ];
 				LastFiveScored.RemoveAt( 0 );
 				LastFiveConceded.RemoveAt( 0 );
 				LastFivexScored.RemoveAt( 0 );

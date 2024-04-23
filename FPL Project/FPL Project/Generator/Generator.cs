@@ -169,11 +169,14 @@ namespace FPL_Project.Generator
 					{
 						foreach ( TeamsHistory team in teamHistorys )
 						{
-							if ( team.Team == opponent ) player.TrainingData.SetOpponentData( team );
+							if (team.Team == opponent)
+							{
+								player.TrainingData.SetOpponentData(team);
+								player.TrainingData.Week = week;
+								testingDataCollection.AddTestingData(new TestingData(player.TrainingData));
+							}
 						}
 					}
-					player.TrainingData.Week = week;
-					testingDataCollection.AddTestingData( new TestingData( player.TrainingData ) );
 				}
 			}
 			return testingDataCollection;
