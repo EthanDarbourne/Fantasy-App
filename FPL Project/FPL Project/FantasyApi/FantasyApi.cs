@@ -19,21 +19,19 @@ namespace FPL_Project.Api
 		// need to map some players as they have the same names
 		private static Dictionary<Tuple<string, Teams>, string> playerMap = new()
 		{
-			{ Tuple.Create("Neto", Teams.Bournemouth), "N.Neto" },
-			{ Tuple.Create("Andersen", Teams.Luton), "M.Andersen" },
-			{ Tuple.Create("Wilson", Teams.Fulham), "H.Wilson" },
-			{ Tuple.Create("Onana", Teams.ManUtd), "A.Onana" },
-			{ Tuple.Create("Robinson", Teams.SheffieldUtd), "J.Robinson" },
-			{ Tuple.Create("Thomas", Teams.SheffieldUtd), "L.Thomas" },
 			{ Tuple.Create("Martinez", Teams.ManUtd), "L.Martinez" },
+			{ Tuple.Create("Johnson", Teams.Spurs), "B.Johnson" },
+			{ Tuple.Create("Onana", Teams.ManUtd), "A.Onana" },
+			{ Tuple.Create("Neto", Teams.Arsenal), "N.Neto" },
+			{ Tuple.Create("Wilson", Teams.Fulham), "H.Wilson" },
+			{ Tuple.Create("Taylor", Teams.Ipswich), "J.Taylor" },
+			//{ Tuple.Create("Thomas", Teams.SheffieldUtd), "L.Thomas" },
 
 		};
 
 		private static char[,] characterMap = new char[,]{{ 'Ø', 'O' }, { 'ß', 'b' }, { 'ć', 'c' }, { 'á', 'a' }, { 'í', 'i' }, { 'ğ', 'g' }, { 'ú', 'u' }, { 'ž', 'z' }, { 'ł', 'l' }, { 'ö', 'o' },
 				{ 'ü', 'u' }, { 'ø', 'o' }, { 'ä', 'a' }, { 'š', 's' }, { 'ó', 'o' }, { 'é', 'e' }, { 'Á', 'A' }, { 'ï', 'i' }, { 'ñ', 'n' }, { 'ã', 'a' }, { 'ş', 's' }, { 'Š', 'S' }};
 
-		private static List<string> teamsMap = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Liverpool", "Luton",
-															"ManCity", "ManUtd", "Newcastle", "NottmForest", "SheffieldUtd", "Spurs", "WestHam", "Wolves", };
 		private static string PlayerMap( string player, Teams team )
 		{
 			playerMap.TryGetValue( Tuple.Create( player, team ), out var val );
@@ -52,7 +50,7 @@ namespace FPL_Project.Api
 
 		private static Teams TeamsMap(int team)
 		{
-			return TeamReader.ReadTeam( teamsMap[ team - 1 ]);
+			return TeamReader.ReadTeam( TeamReader.TeamsAsStrings[ team - 1 ]);
 		}
 
 		public static async Task<FixtureCollection> LoadFixtureDetails()
@@ -132,13 +130,14 @@ namespace FPL_Project.Api
 				var replacePlayer = cur.GetPlayer( name );
 				if ( replacePlayer is null )
 				{
-					if ( ( int ) player[ "total_points" ] > 13 || ( int ) player[ "minutes" ] > 152 )
-					{
-						stat.SetTeamAndPosition( Teams.Burnley, Positions.Defender );
-						ret.AddPlayerDetails( stat );
-						Console.WriteLine( $"Couldn't add team and position for {stat.Name}" );
-					}
-					continue;
+                    Console.WriteLine( $"Couldn't add team and position for {stat.Name}" );
+                    //if ( ( int ) player[ "total_points" ] > 13 || ( int ) player[ "minutes" ] > 152 )
+                    //{
+                    //	stat.SetTeamAndPosition( Teams.Burnley, Positions.Defender );
+                    //	ret.AddPlayerDetails( stat );
+                    //	Console.WriteLine( $"Couldn't add team and position for {stat.Name}" );
+                    //}
+                    continue;
 				}
 				else
 				{
@@ -160,7 +159,7 @@ namespace FPL_Project.Api
 			return ret;
 		}
 
-		public static async Task<List<GameweekData>> GetPlayerGameweekData( int playerId )
+        public static async Task<List<GameweekData>> GetPlayerGameweekData( int playerId )
 		{
 			var request = string.Format( getPlayerData_, playerId );
 			var response = await client.GetAsync( request );

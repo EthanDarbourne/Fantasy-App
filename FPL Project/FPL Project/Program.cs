@@ -21,7 +21,7 @@ FixtureCollection FixturesCollection = FixtureData.ReadDataFile();
 DeletedCollection DeletedCollection = new (); // not loaded, only appended to file
 List<GameweekDataCollection> GameweeksCollection = new ();
 
-int TotalWeeks = int.Parse( ConfigCollection.GetValue( "Gameweek" ) );
+bool success = int.TryParse( ConfigCollection.GetValue( "Gameweek" ), out var TotalWeeks);
 
 for ( int week = 1; week <= TotalWeeks; ++week )
 {
@@ -496,6 +496,8 @@ async Task RunInstruction( string? instruction = null )
 			Console.Write( "Enter threshold number: " );
 			int threshold = int.Parse( Console.ReadLine()! );
 			await Generator.GenerateTrainingDataAboveThreshold( TotalWeeks, PlayerCollection, GameweeksCollection, FixturesCollection, threshold );
+			break;
+		case "backupdata":
 			break;
 		case "reportonteam":
 			// report on the team created by the ML model

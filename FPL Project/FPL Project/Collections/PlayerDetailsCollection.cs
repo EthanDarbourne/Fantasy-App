@@ -59,7 +59,7 @@ namespace FPL_Project.Collections
 			}
 			PlayersById_.Add( player.Id, player.Name);
 			Players_.Add( player.Name, player );
-			PlayersByTeam_[ ( int ) player.Team - 1].Add( player );
+			PlayersByTeam_[ ( int ) player.Team].Add( player );
 			AddItem( player );
 		}
 

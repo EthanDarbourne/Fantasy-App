@@ -55,8 +55,9 @@ namespace FPL_Project.Generator
 
 					
 					
-					if ( week > 5 && week != weeks )
-					{
+					if ( week > 5 ) // && week != weeks
+                    {
+						// we will have at least 5 weeks of data behind us to use
 						
 						//if ( week == weeks) // use next fixture data
 						//{
@@ -77,7 +78,7 @@ namespace FPL_Project.Generator
 						
 
 						// use current weeks points
-						trainingData.ActualPoints = gameweekDataCollection[ week ].GetGameweekData( fullPlayer.PlayerDetails.Name )!.Points;
+						trainingData.ActualPoints = gameweekDataCollection[ week - 1 ].GetGameweekData( fullPlayer.PlayerDetails.Name )!.Points;
 
 						trainingData.Week = week;
 						trainingDataCollection.AddTrainingData( new TrainingData( trainingData ) );

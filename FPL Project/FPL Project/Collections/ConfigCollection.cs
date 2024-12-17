@@ -20,6 +20,10 @@ namespace FPL_Project.Collections
 			{
 				Pairs_[ key ].SetValue( value );
 			}
+			else
+			{
+				AddPair( key, value );
+			}
 		}
 
 		public void AddPair( string key, string value )

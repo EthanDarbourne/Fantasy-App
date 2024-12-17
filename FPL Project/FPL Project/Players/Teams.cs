@@ -8,33 +8,33 @@ namespace FPL_Project.Players
 {
     public enum Teams
     {
-        ManCity = 1,
-        Arsenal = 2,
-		ManUtd = 3,
-		Newcastle = 4,
-		Liverpool = 5,
-		Brighton = 6,
-		AstonVilla = 7,
-		Spurs = 8,
-		Brentford = 9,
-		Fulham = 10,
-		CrystalPalace = 11,
-		Chelsea = 12,
-        Wolves = 13,
-		WestHam = 14,
-		Bournemouth = 15,
-		NottmForest = 16,
-        Everton = 17,
-        Burnley = 18,
-		SheffieldUtd = 19,
-		Luton = 20,
+        Arsenal,
+		AstonVilla,
+		Bournemouth,
+		Brentford,
+		Brighton,
+		Chelsea,
+		CrystalPalace,
+        Everton,
+		Fulham,
+		Ipswich,
+        Leicester,
+		Liverpool,
+        ManCity,
+		ManUtd,
+		Newcastle,
+		NottmForest,
+		Southampton,
+		Spurs,
+		WestHam,
+        Wolves,
 	}
 
 	public static class TeamReader
 	{
 
-		private static List<string> TeamsAsStrings = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Burnley", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Liverpool", "Luton",
-															"ManCity", "ManUtd", "Newcastle", "NottmForest", "SheffieldUtd", "Spurs", "WestHam", "Wolves", };
+		public static readonly List<string> TeamsAsStrings = new() { "Arsenal", "AstonVilla", "Bournemouth", "Brentford", "Brighton", "Chelsea", "CrystalPalace", "Everton", "Fulham", "Ipswich", "Leicester", "Liverpool", 
+															"ManCity", "ManUtd", "Newcastle", "NottmForest", "Southampton", "Spurs", "WestHam", "Wolves", };
 
 		public static Teams ReadTeam(string s)
 		{
@@ -51,7 +51,7 @@ namespace FPL_Project.Players
 						return ReadTeam( t );
 					}
 				}
-				throw new Exception( "Invalid Team" );
+				throw new Exception( $"Invalid Team: {s}" );
 
 			}
 			return team;

@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Constants;
 using FPL_Project.Data;
 using FPL_Project.Players;
 using System;
@@ -12,7 +13,7 @@ namespace FPL_Project.DataFiles
 	public class FixtureDataFile : DataFile<FixtureCollection>
 	{
 
-		public FixtureDataFile() : base( "Data/Fixtures.csv" )
+		public FixtureDataFile() : base( $"{FPLConstants.FolderName}/Fixtures.csv" )
 		{
 		}
 

@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Constants;
 using FPL_Project.Data;
 using FPL_Project.Players;
 using System;
@@ -12,7 +13,7 @@ namespace FPL_Project.DataFiles
 {
     public class PlayerDetailsDataFile : DataFile<PlayerDetailsCollection>
 	{
-		public PlayerDetailsDataFile() : base( "Data/PlayerDetails.csv" )
+		public PlayerDetailsDataFile() : base( $"{FPLConstants.FolderName}/PlayerDetails.csv" )
 		{
 		}
 

@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Constants;
 using FPL_Project.Players;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace FPL_Project.DataFiles
 
 		private int Gameweek_;
 
-		public GameweekDataFile( int gameweek, bool create = false ) : base( $"Data/Gameweek{gameweek}.csv" )
+		public GameweekDataFile( int gameweek, bool create = false ) : base( $"{FPLConstants.FolderName}/Gameweek{gameweek}.csv" )
 		{
 			Gameweek_ = gameweek;
 			if ( create && File.Exists( fileName ) )

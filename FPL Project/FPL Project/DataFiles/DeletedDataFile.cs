@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Constants;
 using FPL_Project.Data;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace FPL_Project.DataFiles
 {
 	public class DeletedDataFile : DataFile<DeletedCollection>
 	{
-		public DeletedDataFile() : base( "Data/DeletedData.csv" )
+		public DeletedDataFile() : base( $"{FPLConstants.FolderName}/DeletedData.csv" )
 		{
 		}
 

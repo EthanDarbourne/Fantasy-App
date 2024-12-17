@@ -1,4 +1,5 @@
 ﻿using FPL_Project.Collections;
+using FPL_Project.Constants;
 using FPL_Project.Data;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace FPL_Project.DataFiles
 {
 	public class ConfigDataFile : DataFile<ConfigCollection>
 	{
-		public ConfigDataFile() : base( $"Data/Config.csv" )
+		public ConfigDataFile() : base( $"{FPLConstants.FolderName}/Config.csv" )
 		{
 
 		}
